@@ -1,14 +1,7 @@
 # WP CCSearch 
-Contributors: lenasterg, nts on cti.gr, sch.gr
-Donate link: 
-Tags: cc, media library, free stock, free photo
-Requires at least: 4.6
-Tested up to: 5.0.3
-Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
+
 
 ## Description
 
@@ -53,6 +46,7 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 4. Image settings: use of thumbnail or original image, set the image link (if any). Insert the image into the post or as featured image.
 5. The image and it's license into the editor
 6. The published post with the image.
+
 
 ## Changelog
 
