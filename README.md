@@ -1,4 +1,4 @@
-=== WP CCSearch ===
+# WP CCSearch 
 Contributors: lenasterg, nts on cti.gr, sch.gr
 Donate link: 
 Tags: cc, media library, free stock, free photo
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
 
-== Description ==
+## Description
 
 WP CCSearch helps you search millions of free photos using the CCsearch API (https://api.creativecommons.engineering/#tag/image)  then insert the original image into content or set as featured image very quickly.
 The plugin is inspired and based on the https://ccsearch.creativecommons.org/ and it wouldnt't be possible without the Creative Commons Catalog API https://api.creativecommons.engineering/
@@ -29,7 +29,7 @@ Please follow the link to the source of the content to independently verify befo
 Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/classic-editor/) in order to work.
 
 
-= Features =
+## Features
 
 - Search millions of free photos using CCsearch API
 - Quick insert image with original URL or thumbmail
@@ -38,7 +38,7 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 - Multisite compatible
 
 
-== Installation ==
+## Installation
 
 1. Unzip the wp-ccsearch.zip
 2. Copy wp-ccsearch folder to wp-content/plugins
@@ -46,7 +46,7 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 4. Now when you create/edit the post, you can see the "Image via CCSearch"  button above the editor and as option into the "Add Media" pop-up window. 
 5. Enjoy!
 
-== Screenshots ==
+## Screenshots
 1. The "Image via CC Search" button on editor
 2. Search for an image 
 3. Preview of an image and its license.
@@ -54,18 +54,18 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 5. The image and it's license into the editor
 6. The published post with the image.
 
-== Changelog ==
+## Changelog
 
 = 0.1 =
 * Released
 
-== Roadmap ==
+## Roadmap
 - Multiple select support
 - Gutenberg compatibility
 - Select options for filtering: providers, licenses, creator
 - Image to the 'Image via CC Search' editor button
 - Info page
 
-== Credits ==
+## Credits 
 - The plugin is inspired and based on the https://ccsearch.creativecommons.org/ and it wouldnt't be possible without the Creative Commons Catalog API https://api.creativecommons.engineering/
 - The plugin's code is based on the WP Pexels https://wordpress.org/plugins/wp-pexels/  code by WPclever.net
