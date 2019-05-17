@@ -19,7 +19,7 @@ NOTE: Please, verify the license at the source. CC Search aggregates data from p
 Creative Commons does not host the content and does not verify that the content is properly CC-licensed or that the attribution information is accurate or complete. 
 Please follow the link to the source of the content to independently verify before reuse.
 
-Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/classic-editor/) in order to work.
+Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classic-editor/) in order to work.
 
 
 ## Features
