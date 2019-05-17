@@ -1,0 +1,197 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP CCSearch\n"
+"POT-Creation-Date: 2019-05-17 17:52+0300\n"
+"PO-Revision-Date: 2019-05-16 18:58+0300\n"
+"Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
+"Language-Team: Lena Stergatou <aqua6617@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: index.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: index.php:49
+msgid "Image via CC search"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: index.php:68 index.php:79
+msgid "WP CCSearch"
+msgstr ""
+
+#: index.php:82
+#, php-format
+msgid ""
+"Thank you for using our plugin! If you are satisfied, please reward it a "
+"full five-star %s rating."
+msgstr ""
+
+#: index.php:85
+msgid "Reviews"
+msgstr ""
+
+#: index.php:87
+msgid "Changelogs"
+msgstr ""
+
+#: index.php:89
+msgid "Discussion"
+msgstr ""
+
+#: index.php:95
+msgid "How to use?"
+msgstr ""
+
+#: index.php:101
+msgid "1. Press the \"Image via CCsearch\" button above editor"
+msgstr ""
+
+#: index.php:104
+msgid "2. Type any key to search"
+msgstr ""
+
+#: index.php:107
+msgid "3. Choose the photo as you want then insert or set featured"
+msgstr ""
+
+#: index.php:129
+msgid "by"
+msgstr ""
+
+#: index.php:130
+msgid "is licensed under"
+msgstr ""
+
+#: index.php:131
+msgid "About"
+msgstr ""
+
+#: index.php:132
+msgid "results / Pages"
+msgstr ""
+
+#: index.php:161
+msgid "Permissions check failed"
+msgstr ""
+
+#: index.php:180
+msgid "Image via CC Search"
+msgstr ""
+
+#: index.php:261
+msgid "Use only Latin letters"
+msgstr ""
+
+#: index.php:263
+msgid "keyword"
+msgstr ""
+
+#: index.php:265
+msgid "Search"
+msgstr ""
+
+#: index.php:282
+msgid "CC license"
+msgstr ""
+
+#: index.php:285
+msgid "NOTE: Please verify the license at the source"
+msgstr ""
+
+#: index.php:286
+msgid ""
+"CC Search aggregates data from publicly available repositories of open "
+"content. CC does not host the content and does not verify that the content "
+"is properly CC-licensed or that the attribution information is accurate or "
+"complete. Please follow the link to the source of the content to "
+"independently verify before reuse."
+msgstr ""
+
+#: index.php:290
+msgid "Alignment"
+msgstr ""
+
+#: index.php:294 index.php:326
+msgid "None"
+msgstr ""
+
+#: index.php:297
+msgid "Left"
+msgstr ""
+
+#: index.php:300
+msgid "Right"
+msgstr ""
+
+#: index.php:303
+msgid "Center"
+msgstr ""
+
+#: index.php:309
+msgid "Use"
+msgstr ""
+
+#: index.php:313
+msgid "Thumbnail image"
+msgstr ""
+
+#: index.php:316
+msgid "Full image"
+msgstr ""
+
+#: index.php:322
+msgid "Link to"
+msgstr ""
+
+#: index.php:328
+msgid "Original site"
+msgstr ""
+
+#: index.php:330
+msgid "Original image"
+msgstr ""
+
+#: index.php:338
+msgid "Open in new windows"
+msgstr ""
+
+#: index.php:345
+msgid "Rel nofollow"
+msgstr ""
+
+#: index.php:359 index.php:375
+msgid "Insert"
+msgstr ""
+
+#: index.php:364
+msgid "Featured"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpccsearch.net/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"WP CCSearch helps you search millions of free photos then insert into "
+"content or set as featured image very quickly."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "lenasterg, nts on cti.gr, sch.gr"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://lenasterg.wordpress.com"
+msgstr ""
