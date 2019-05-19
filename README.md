@@ -3,7 +3,7 @@
 WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
 
 # Test site
-You can test the plugin functionality at http://users.sch.gr/stergatu/wordpress/ by login as testuser, testuser.
+You can test the plugin functionality at http://users.sch.gr/stergatu/wordpress/ by login via http://users.sch.gr/stergatu/wordpress/wp-login.php as testuser: testuser.
 
 
 ## Description
