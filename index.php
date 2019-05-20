@@ -3,7 +3,7 @@
   Plugin Name: WP CCSearch
   Plugin URI: https://github.com/lenasterg/wp_ccsearch
   Description: WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
-  Version: 0.1
+  Version: 0.2.0
   Author: lenasterg, nts on cti.gr, sch.gr
   Author URI: https://lenasterg.wordpress.com
   Text Domain: wpcc
@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '1.0' );
+!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.2.0' );
 !defined( 'WPCC_URI' ) && define( 'WPCC_URI', plugin_dir_url( __FILE__ ) );
 !defined( 'WPCC_REVIEWS' ) && define( 'WPCC_REVIEWS', 'https://wordpress.org/support/plugin/wp-ccsearch/reviews/?filter=5' );
 !defined( 'WPCC_CHANGELOGS' ) && define( 'WPCC_CHANGELOGS', 'https://wordpress.org/plugins/wp-ccsearch/#developers' );
@@ -258,7 +258,7 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 					<div class="wpcc_area_content_col wpcc_area_content_left">
 						<div class="wpcc_area_content_col_inner">
 							<div class="wpcc_area_content_col_top">
-								<label for="wpcc_input"><?php _e( 'Use only Latin letters', 'wpcc' ); ?>  </label>
+								<label for="wpcc_input"><?php _e( 'Use only Latin letters', 'wp-ccsearch' ); ?>  </label>
 								<input type="text" id="wpcc_input" name="wpcc_input" class="w300"
 									   placeholder="<?php esc_html_e( 'keyword', 'wp-ccsearch' ); ?>"/>
 								<input type="button" id="wpcc_search" class="p20"

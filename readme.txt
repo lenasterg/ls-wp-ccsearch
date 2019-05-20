@@ -56,7 +56,11 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 
 == Changelog ==
 
-= 0.1 =
+= 0.2.0 =
+* Fix wp-ccsearch.pot
+* Greek translation added
+
+= 0.1.0 =
 * Released
 
 == Roadmap ==
