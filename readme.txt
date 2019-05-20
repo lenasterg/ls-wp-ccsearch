@@ -13,6 +13,7 @@ WP CCSearch helps you search millions of free photos then insert into content or
 == Description ==
 
 WP CCSearch helps you search millions of free photos using the CCsearch API (https://api.creativecommons.engineering/#tag/image)  then insert the original image into content or set as featured image very quickly.
+It allows the user to filter the provider source.
 The plugin is inspired and based on the https://ccsearch.creativecommons.org/ and it wouldnt't be possible without the Creative Commons Catalog API https://api.creativecommons.engineering/
 
 After the plugin's activation, you can see the "Image via CCSearch"  button above the editor and as option into the "Add Media" pop-up window. 
@@ -56,6 +57,11 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 
 == Changelog ==
 
+
+= 0.3.0 =
+* Add provider dropdown select
+* Fix: Use full image when thumbnail url is broken 
+
 = 0.2.0 =
 * Fix wp-ccsearch.pot
 * Greek translation added
@@ -64,10 +70,11 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 * Released
 
 == Roadmap ==
-- Multiple select support
+- Multiple images select support
 - Gutenberg compatibility
-- Select options for filtering: providers, licenses, creator
-- Image to the 'Image via CC Search' editor button
+- Multiselect options for filtering: providers
+- select options for filtering: licenses, creator
+- Image for the 'Image via CC Search' editor button
 - Info page
 
 == Credits ==

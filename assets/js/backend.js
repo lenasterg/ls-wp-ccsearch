@@ -7,6 +7,21 @@ var wpcc_width_big = '930px';
 var wpcc_height = '600px';
 
 jQuery(document).ready(function ($) {
+    let dropdown = $('#wpcc_provider');
+    dropdown.empty();
+    dropdown.append('<option value="">'+wpcc_vars.wpcc_allproviders+'</option>');
+    dropdown.prop('selectedIndex', 0);
+
+    const url = 'https://api.creativecommons.engineering/statistics/image?format=json';
+
+// Populate dropdown with list of providers, since v0.3.0
+    $.getJSON(url, function (data) {
+        data.sort(SortByDisplay);
+        $.each(data, function (key, entry) {
+            dropdown.append($('<option></option>').attr('value', entry.provider_name).text(entry.display_name));
+        })
+    });
+
     $('.wpcc_loading_text').hide();
 
     $('#wpcc_input').keypress(function (event) {
@@ -167,7 +182,7 @@ jQuery(document).ready(function ($) {
         $('#wpcc_error').html('');
 
         $('#wpcc_sourcelink').html(wpcc_imgs[checkbox_id].img_sourcelink);
-        
+
         $('#wpcc_insert span').html('(' + wpcc_selected.length + ')');
         $('#wpcc_save span').html('(' + wpcc_selected.length + ')');
         $('#wpcc_save_only span').html(' (' + wpcc_selected.length + ')');
@@ -190,6 +205,7 @@ function wpcc_search(page) {
     var data = {
         action: 'wpcc_search',
         key: jQuery('#wpcc_input').val(),
+        provider: jQuery('#wpcc_provider').val(),
         page: page,
         wpcc_nonce: wpcc_vars.wpcc_nonce
     };
@@ -210,8 +226,7 @@ function wpcc_search(page) {
  * 
  * @param {type} data
  * @param {type} page
- * @returns {undefined}
- * @version 2.0, lenasterg
+ * @version 3.0, lenasterg
  */
 function wpcc_show_images(data, page) {
     jQuery('#wpcc_search').removeClass('loading');
@@ -227,10 +242,15 @@ function wpcc_show_images(data, page) {
             var img_ext = data.results[i].url.split('.').pop().toUpperCase().substring(0, 4);
             var img_site = data.results[i].foreign_landing_url;
             var img_source = data.results[i].source;
-            var img_thumb = data.results[i].thumbnail;
-            var img_full = data.results[i].url;
 
-            if (data.results[i].title != undefined) {
+            var img_full = data.results[i].url;
+            if (typeof data.results[i].thumbnail != 'undefined') {
+                var img_thumb = data.results[i].thumbnail;
+                img_thumb = img_thumb.replace('https://api.creativecommons.engineering/t/600/', '');
+            } else {
+                img_thumb = img_full;
+            }
+            if (typeof data.results[i].title != 'undefined') {
                 img_title = String(data.results[i].title);
             } else {
                 img_title = img_id;
@@ -243,9 +263,9 @@ function wpcc_show_images(data, page) {
                     img_ext + ' | </span></div>'
                     );
 
-            var img_sourcelink = '<a href="'+img_site+'" target="_blank">'+img_source+'</a>'
-                    
-            
+            var img_sourcelink = '<a href="' + img_site + '" target="_blank">' + img_source + '</a>'
+
+
             wpcc_imgs[img_id] = {
                 img_ext: img_ext,
                 img_site: img_site,
@@ -262,7 +282,7 @@ function wpcc_show_images(data, page) {
         });
     }
     if (data.result_count != 'undefined') {
-        var pages = wpcc_vars.wpcc_res_about + ' ' + data.result_count + ' '+ wpcc_vars.wpcc_res_pages +': ';
+        var pages = wpcc_vars.wpcc_res_about + ' ' + data.result_count + ' ' + wpcc_vars.wpcc_res_pages + ': ';
         var per_page = 12;
         if (data.result_count / per_page > 1) {
             pages += '<select id="wpcc_page_select" class="wpcc_page_select">';
@@ -379,4 +399,16 @@ function wpcc_escape_html(html) {
     } else {
         return html.replace(/[&<>"]/g, fn);
     }
+}
+
+
+/**
+ * Based on https://www.devcurry.com/2010/05/sorting-json-array.html
+ * @param string x
+ * @param string y
+ * @returns string
+ * 
+ */
+ function SortByDisplay(x, y) {
+    return ((x.display_name == y.display_name) ? 0 : ((x.display_name > y.display_name) ? 1 : -1));
 }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP CCSearch\n"
-"POT-Creation-Date: 2019-05-20 10:57+0300\n"
+"POT-Creation-Date: 2019-05-20 18:06+0300\n"
 "PO-Revision-Date: 2019-05-16 18:58+0300\n"
 "Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
 "Language-Team: Lena Stergatou <aqua6617@yahoo.com>\n"
@@ -81,35 +81,39 @@ msgstr ""
 msgid "results / Pages"
 msgstr ""
 
-#: index.php:161
+#: index.php:133
+msgid "All providers"
+msgstr ""
+
+#: index.php:168
 msgid "Permissions check failed"
 msgstr ""
 
-#: index.php:180
+#: index.php:188
 msgid "Image via CC Search"
 msgstr ""
 
-#: index.php:261
+#: index.php:269
 msgid "Use only Latin letters"
 msgstr ""
 
-#: index.php:263
+#: index.php:271
 msgid "keyword"
 msgstr ""
 
-#: index.php:265
+#: index.php:274
 msgid "Search"
 msgstr ""
 
-#: index.php:282
+#: index.php:291
 msgid "CC license"
 msgstr ""
 
-#: index.php:285
+#: index.php:294
 msgid "NOTE: Please verify the license at the source"
 msgstr ""
 
-#: index.php:286
+#: index.php:295
 msgid ""
 "CC Search aggregates data from publicly available repositories of open "
 "content. CC does not host the content and does not verify that the content "
@@ -118,63 +122,63 @@ msgid ""
 "independently verify before reuse."
 msgstr ""
 
-#: index.php:290
+#: index.php:299
 msgid "Alignment"
 msgstr ""
 
-#: index.php:294 index.php:326
+#: index.php:303 index.php:335
 msgid "None"
 msgstr ""
 
-#: index.php:297
+#: index.php:306
 msgid "Left"
 msgstr ""
 
-#: index.php:300
+#: index.php:309
 msgid "Right"
 msgstr ""
 
-#: index.php:303
+#: index.php:312
 msgid "Center"
 msgstr ""
 
-#: index.php:309
+#: index.php:318
 msgid "Use"
 msgstr ""
 
-#: index.php:313
+#: index.php:322
 msgid "Thumbnail image"
 msgstr ""
 
-#: index.php:316
+#: index.php:325
 msgid "Full image"
 msgstr ""
 
-#: index.php:322
+#: index.php:331
 msgid "Link to"
 msgstr ""
 
-#: index.php:328
+#: index.php:337
 msgid "Original site"
 msgstr ""
 
-#: index.php:330
+#: index.php:339
 msgid "Original image"
 msgstr ""
 
-#: index.php:338
+#: index.php:347
 msgid "Open in new windows"
 msgstr ""
 
-#: index.php:345
+#: index.php:354
 msgid "Rel nofollow"
 msgstr ""
 
-#: index.php:359 index.php:375
+#: index.php:368 index.php:384
 msgid "Insert"
 msgstr ""
 
-#: index.php:364
+#: index.php:373
 msgid "Featured"
 msgstr ""
 

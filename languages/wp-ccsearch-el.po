@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP CCSearch\n"
-"POT-Creation-Date: 2019-05-20 10:56+0300\n"
-"PO-Revision-Date: 2019-05-20 10:57+0300\n"
+"POT-Creation-Date: 2019-05-20 18:06+0300\n"
+"PO-Revision-Date: 2019-05-20 18:06+0300\n"
 "Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
 "Language-Team: Lena Stergatou <aqua6617@yahoo.com>\n"
 "Language: el\n"
@@ -87,35 +87,39 @@ msgstr "Πληροφορίες"
 msgid "results / Pages"
 msgstr "αποτελέσματα/σελίδες"
 
-#: index.php:161
+#: index.php:133
+msgid "All providers"
+msgstr "Όλοι οι πάροχοι"
+
+#: index.php:168
 msgid "Permissions check failed"
 msgstr "Ο έλεγχος δικαιωμάτων απέτυχε"
 
-#: index.php:180
+#: index.php:188
 msgid "Image via CC Search"
 msgstr "Εικόνα μέσω CC search"
 
-#: index.php:261
+#: index.php:269
 msgid "Use only Latin letters"
 msgstr "Μόνο λατινικοί χαρακτήρες"
 
-#: index.php:263
+#: index.php:271
 msgid "keyword"
 msgstr "Όρος-κλειδί"
 
-#: index.php:265
+#: index.php:274
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: index.php:282
+#: index.php:291
 msgid "CC license"
 msgstr "CC license"
 
-#: index.php:285
+#: index.php:294
 msgid "NOTE: Please verify the license at the source"
 msgstr "ΣΗΜΕΙΩΣΗ: Επαληθεύστε την άδειά σας στην πηγή"
 
-#: index.php:286
+#: index.php:295
 msgid ""
 "CC Search aggregates data from publicly available repositories of open "
 "content. CC does not host the content and does not verify that the content "
@@ -129,69 +133,69 @@ msgstr ""
 "ακριβείς ή πλήρεις. Παρακαλούμε ακολουθήστε το σύνδεσμο προέλευσης του "
 "περιεχομένου για να τα επαληθεύσετε πριν από την χρήση της εικόνας."
 
-#: index.php:290
+#: index.php:299
 msgid "Alignment"
 msgstr "Στοίχιση"
 
-#: index.php:294 index.php:326
+#: index.php:303 index.php:335
 msgid "None"
 msgstr "Καμία"
 
-#: index.php:297
+#: index.php:306
 msgid "Left"
 msgstr "Aριστερά"
 
-#: index.php:300
+#: index.php:309
 msgid "Right"
 msgstr "Δεξιά"
 
-#: index.php:303
+#: index.php:312
 msgid "Center"
 msgstr "Κέντρο"
 
-#: index.php:309
+#: index.php:318
 msgid "Use"
 msgstr "Χρήση"
 
-#: index.php:313
+#: index.php:322
 msgid "Thumbnail image"
 msgstr "Μικρογραφία"
 
-#: index.php:316
+#: index.php:325
 msgid "Full image"
 msgstr "Πλήρης εικόνα"
 
-#: index.php:322
+#: index.php:331
 msgid "Link to"
 msgstr "Σύνδεση με"
 
-#: index.php:328
+#: index.php:337
 msgid "Original site"
 msgstr "Αρχικός ιστότοπος"
 
-#: index.php:330
+#: index.php:339
 msgid "Original image"
 msgstr "Αρχική εικόνα"
 
-#: index.php:338
+#: index.php:347
 msgid "Open in new windows"
 msgstr "Άνοιγμα σε νέo παράθυρo"
 
-#: index.php:345
+#: index.php:354
 msgid "Rel nofollow"
 msgstr "Rel nofollow"
 
-#: index.php:359 index.php:375
+#: index.php:368 index.php:384
 msgid "Insert"
 msgstr "Εισαγωγή"
 
-#: index.php:364
+#: index.php:373
 msgid "Featured"
 msgstr "Χαρακτηρ. άρθρου"
 
 #. Plugin URI of the plugin/theme
-msgid "https://wpccsearch.net/"
-msgstr "https://wpccsearch.net/"
+msgid "https://github.com/lenasterg/wp_ccsearch"
+msgstr "https://github.com/lenasterg/wp_ccsearch"
 
 #. Description of the plugin/theme
 msgid ""
@@ -209,3 +213,6 @@ msgstr "lenasterg, nts on cti.gr, sch.gr"
 #. Author URI of the plugin/theme
 msgid "https://lenasterg.wordpress.com"
 msgstr "https://lenasterg.wordpress.com"
+
+#~ msgid "https://wpccsearch.net/"
+#~ msgstr "https://wpccsearch.net/"

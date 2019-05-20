@@ -3,7 +3,7 @@
   Plugin Name: WP CCSearch
   Plugin URI: https://github.com/lenasterg/wp_ccsearch
   Description: WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
-  Version: 0.2.0
+  Version: 0.3.0
   Author: lenasterg, nts on cti.gr, sch.gr
   Author URI: https://lenasterg.wordpress.com
   Text Domain: wpcc
@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.2.0' );
+!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.3.0' );
 !defined( 'WPCC_URI' ) && define( 'WPCC_URI', plugin_dir_url( __FILE__ ) );
 !defined( 'WPCC_REVIEWS' ) && define( 'WPCC_REVIEWS', 'https://wordpress.org/support/plugin/wp-ccsearch/reviews/?filter=5' );
 !defined( 'WPCC_CHANGELOGS' ) && define( 'WPCC_CHANGELOGS', 'https://wordpress.org/plugins/wp-ccsearch/#developers' );
@@ -128,8 +128,9 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 				'wpcc_nonce' => wp_create_nonce( 'wpcc_nonce' ),
 				'wpcc_by_author' => __( 'by', 'wp-ccsearch' ),
 				'wpcc_licensed_under' => __( 'is licensed under', 'wp-ccsearch' ),
-				'wpcc_res_about' =>__('About', 'wp-ccsearch' ), 
-				'wpcc_res_pages' =>__('results / Pages', 'wp-ccsearch' ), 
+				'wpcc_res_about' => __( 'About', 'wp-ccsearch' ),
+				'wpcc_res_pages' => __( 'results / Pages', 'wp-ccsearch' ),
+				'wpcc_allproviders' => __( 'All providers', 'wp-ccsearch' ),
 			) );
 		}
 
@@ -149,14 +150,20 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 			return $links;
 		}
 
+		/**
+		 * @version 2.0
+		 */
 		function wpcc_search_ajax() {
 			$licence = $provider = '';
+			if ( isset( $_POST['provider'] ) ) {
+				$provider = '&provider=' . esc_html( $_POST['provider'] );
+			}
 			//	$provider = '&provider=500px,behance,CAPL,flickr';
 			//	$licence='&li=cc0';
 			//	$lt = '&lt=modification';
 //			$lt = '&lt=commercial';
 			$lt = '&li=BY-NC-SA';
-			//$provider='&provider=500px,thorvaldsensmuseum,thingiverse,svgsilh,sciencemuseum,rijksmuseum,rawpixel,nypl,museumsvictoria,met,mccordmuseum,iha,geographorguk,floraon,eol,digitaltmuseum,deviantart,clevelandmuseum,brooklynmuseum,behance,animaldiversity,WoRMS,CAPL';
+
 			if ( !isset( $_POST['wpcc_nonce'] ) || !wp_verify_nonce( $_POST['wpcc_nonce'], 'wpcc_nonce' ) ) {
 				die( esc_html__( 'Permissions check failed', 'wp-ccsearch' ) );
 			}
@@ -167,6 +174,7 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 			} else {
 				curl_setopt( $ch, CURLOPT_URL, 'https://api.creativecommons.engineering/image/search?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&pagesize=20&page=1' );
 			}
+
 			curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
 				'Content-Type: application/json'
 			) );
@@ -259,8 +267,9 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 						<div class="wpcc_area_content_col_inner">
 							<div class="wpcc_area_content_col_top">
 								<label for="wpcc_input"><?php _e( 'Use only Latin letters', 'wp-ccsearch' ); ?>  </label>
-								<input type="text" id="wpcc_input" name="wpcc_input" class="w300"
+								<input type="text" id="wpcc_input" name="wpcc_input" class="w100"
 									   placeholder="<?php esc_html_e( 'keyword', 'wp-ccsearch' ); ?>"/>
+								<select id="wpcc_provider" name="wpcc_provider"></select>
 								<input type="button" id="wpcc_search" class="p20"
 									   value="<?php esc_html_e( 'Search', 'wp-ccsearch' ); ?>"/>
 							</div>
@@ -282,10 +291,10 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 									<label for="wpcc_caption"><?php esc_html_e( 'CC license', 'wp-ccsearch' ); ?>:</label><br/>
 									<input type="hidden" id="wpcc_caption" name="wpcc_caption">
 									<div id="wpcc_caption_display"></div>
-									<div class="wpcc_cc_verify"><?php  _e( 'NOTE: Please verify the license at the source','wp-ccsearch');?>:<span id="wpcc_sourcelink"></span>
-										<br/><?php  _e( 'CC Search aggregates data from publicly available repositories of open content. CC does not host the content and does not verify that the content is properly CC-licensed or that the attribution information is accurate or complete. Please follow the link to the source of the content to independently verify before reuse.', 'wp-ccsearch' );?></div>
+									<div class="wpcc_cc_verify"><?php _e( 'NOTE: Please verify the license at the source', 'wp-ccsearch' ); ?>:<span id="wpcc_sourcelink"></span>
+										<br/><?php _e( 'CC Search aggregates data from publicly available repositories of open content. CC does not host the content and does not verify that the content is properly CC-licensed or that the attribution information is accurate or complete. Please follow the link to the source of the content to independently verify before reuse.', 'wp-ccsearch' ); ?></div>
 								</div>
-							
+
 								<div class="wpcc_item_info">
 									<div><?php esc_html_e( 'Alignment', 'wp-ccsearch' ); ?></div>
 									<div>
