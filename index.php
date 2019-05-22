@@ -3,16 +3,16 @@
   Plugin Name: WP CCSearch
   Plugin URI: https://github.com/lenasterg/wp_ccsearch
   Description: WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
-  Version: 0.3.0
+  Version: 0.4.0
   Author: lenasterg, nts on cti.gr, sch.gr
   Author URI: https://lenasterg.wordpress.com
-  Text Domain: wpcc
+  Text Domain: wp-ccsearch
   Domain Path: /languages/
  */
 
 defined( 'ABSPATH' ) || exit;
 
-!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.3.0' );
+!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.4.0' );
 !defined( 'WPCC_URI' ) && define( 'WPCC_URI', plugin_dir_url( __FILE__ ) );
 !defined( 'WPCC_REVIEWS' ) && define( 'WPCC_REVIEWS', 'https://wordpress.org/support/plugin/wp-ccsearch/reviews/?filter=5' );
 !defined( 'WPCC_CHANGELOGS' ) && define( 'WPCC_CHANGELOGS', 'https://wordpress.org/plugins/wp-ccsearch/#developers' );
@@ -39,6 +39,11 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 			// media tabs
 			add_filter( 'media_upload_tabs', array( $this, 'wpcc_media_upload_tabs' ) );
 			add_action( 'media_upload_wpcc', array( $this, 'wpcc_media_upload_iframe' ) );
+			/**
+			* @since v. 0.4.0
+			* wppointer file 
+			*/
+			require_once 'wp-ccsearch-pointer.php';			
 		}
 
 		function wpcc_load_textdomain() {
@@ -46,7 +51,7 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 		}
 
 		function wpcc_media_upload_tabs( $tabs ) {
-			$tabs['wpcc'] = esc_html__( 'Image via CC search', 'wp-ccsearch' );
+			$tabs['wpcc'] = esc_html__( 'Image with CC licence', 'wp-ccsearch' );
 
 			return ( $tabs );
 		}
@@ -98,7 +103,7 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 				<div class="wpccsearch_settings_page_content">
 					<?php if ( $active_tab == 'how' ) { ?>
 						<div class="wpccsearch_settings_page_content_text">
-							<p><?php esc_html_e( '1. Press the "Image via CCsearch" button above editor', 'wp-ccsearch' ); ?></p>
+							<p><?php esc_html_e( '1. Press the "Image with CC Licence" button above editor', 'wp-ccsearch' ); ?></p>
 							<p><img src="<?php echo WPCC_URI; ?>assets/images/how-01.jpg"/></p>
 
 							<p><?php esc_html_e( '2. Type any key to search', 'wp-ccsearch' ); ?></p>
@@ -185,7 +190,7 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 		}
 
 		function wpcc_add_button( $editor_id ) {
-			echo ' <a href="#wpcc_area" id="wpcc_btn" data-editor="' . $editor_id . '" class="wpcc_btn button add_media" title="Image via CC Search">' . esc_html__( 'Image via CC Search', 'wp-ccsearch' ) . '</a><input type="hidden" class="wpcc_featured_url" name="wpcc_featured_url" value="" /><input type="hidden" class="wpcc_featured_title" name="wpcc_featured_title" value="" /><input type="hidden" class="wpcc_featured_caption" name="wpcc_featured_caption" value="" /> ';
+			echo ' <a href="#wpcc_area" id="wpcc_btn" data-editor="' . $editor_id . '" class="wpcc_btn button add_media" title="'.__('Image with CC licence','wp-ccsearch').'">' . esc_html__( 'Image with CC licence', 'wp-ccsearch' ) . '</a><input type="hidden" class="wpcc_featured_url" name="wpcc_featured_url" value="" /><input type="hidden" class="wpcc_featured_title" name="wpcc_featured_title" value="" /><input type="hidden" class="wpcc_featured_caption" name="wpcc_featured_caption" value="" /> ';
 		}
 
 		function wpcc_save_post_data( $post_id, $post ) {

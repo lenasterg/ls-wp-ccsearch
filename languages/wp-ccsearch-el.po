@@ -1,125 +1,121 @@
 msgid ""
 msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: WP CCSearch\n"
-"POT-Creation-Date: 2019-05-20 18:06+0300\n"
-"PO-Revision-Date: 2019-05-20 18:06+0300\n"
-"Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
+"POT-Creation-Date: 2019-05-22 14:51+0300\n"
+"PO-Revision-Date: 2019-05-22 15:03+0300\n"
 "Language-Team: Lena Stergatou <aqua6617@yahoo.com>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.2\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: index.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
+"Language: el\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: index.php:49
-msgid "Image via CC search"
-msgstr "Εικόνα μέσω CC search"
+#: index.php:54 index.php:193
+msgid "Image with CC licence"
+msgstr "Εικόνα με άδεια CC"
 
 #. Plugin Name of the plugin/theme
-#: index.php:68 index.php:79
+#: index.php:73 index.php:84
 msgid "WP CCSearch"
 msgstr "WP CCSearch"
 
-#: index.php:82
+#: index.php:87
 #, php-format
 msgid ""
 "Thank you for using our plugin! If you are satisfied, please reward it a "
 "full five-star %s rating."
 msgstr ""
-"Σας ευχαριστούμε που χρησιμοποιείτε το plugin μας! Εάν είστε ικανοποιημένοι, "
-"παρακαλώ επιβραβεύσουμε μια πλήρη βαθμολογία πέντε αστέρων %s."
+"Σας ευχαριστούμε που χρησιμοποιείτε το plugin μας! Εάν είστε "
+"ικανοποιημένοι, παρακαλώ επιβραβεύσουμε μια πλήρη βαθμολογία πέντε αστέρων "
+"%s."
 
-#: index.php:85
+#: index.php:90
 msgid "Reviews"
 msgstr "Αξιολογήσεις"
 
-#: index.php:87
+#: index.php:92
 msgid "Changelogs"
 msgstr "Καταγραφή αλλαγών"
 
-#: index.php:89
+#: index.php:94
 msgid "Discussion"
 msgstr "Συζήτηση"
 
-#: index.php:95
+#: index.php:100
 msgid "How to use?"
 msgstr "Πώς να το χρησιμοποιήσετε;"
 
-#: index.php:101
-msgid "1. Press the \"Image via CCsearch\" button above editor"
+#: index.php:106
+msgid "1. Press the \"Image with CC Licence\" button above editor"
 msgstr ""
-"1. Πατήστε το κουμπί \"Εικόνα μέσω CCsearch\" πάνω από το πρόγραμμα "
-"επεξεργασίας"
+"1. Πατήστε το κουμπί \"Εικόνα με άδεια CC\" πάνω από τον κειμενογράφο"
 
-#: index.php:104
+#: index.php:109
 msgid "2. Type any key to search"
 msgstr "2. Πληκτρολογήστε οποιοδήποτε για να αναζητήσετε"
 
-#: index.php:107
+#: index.php:112
 msgid "3. Choose the photo as you want then insert or set featured"
 msgstr ""
 "3. Επιλέξτε τη φωτογραφία όπως θέλετε στη συνέχεια εισαγάγετε την ή ορίστε "
 "την ως χαρακτηριστική εικόνα του άρθρου"
 
-#: index.php:129
+#: index.php:134
 msgid "by"
 msgstr "από"
 
-#: index.php:130
+#: index.php:135
 msgid "is licensed under"
 msgstr "διατίθεται με άδεια χρήσης"
 
-#: index.php:131
+#: index.php:136
 msgid "About"
 msgstr "Πληροφορίες"
 
-#: index.php:132
+#: index.php:137
 msgid "results / Pages"
 msgstr "αποτελέσματα/σελίδες"
 
-#: index.php:133
+#: index.php:138
 msgid "All providers"
 msgstr "Όλοι οι πάροχοι"
 
-#: index.php:168
+#: index.php:173
 msgid "Permissions check failed"
 msgstr "Ο έλεγχος δικαιωμάτων απέτυχε"
 
-#: index.php:188
-msgid "Image via CC Search"
-msgstr "Εικόνα μέσω CC search"
-
-#: index.php:269
+#: index.php:274
 msgid "Use only Latin letters"
 msgstr "Μόνο λατινικοί χαρακτήρες"
 
-#: index.php:271
+#: index.php:276
 msgid "keyword"
 msgstr "Όρος-κλειδί"
 
-#: index.php:274
+#: index.php:279
 msgid "Search"
-msgstr "Αναζήτηση"
+msgstr "Αναζητήστε"
 
-#: index.php:291
+#: index.php:296
 msgid "CC license"
-msgstr "CC license"
+msgstr "Άδεια CC"
 
-#: index.php:294
+#: index.php:299
 msgid "NOTE: Please verify the license at the source"
 msgstr "ΣΗΜΕΙΩΣΗ: Επαληθεύστε την άδειά σας στην πηγή"
 
-#: index.php:295
+#: index.php:300
 msgid ""
 "CC Search aggregates data from publicly available repositories of open "
 "content. CC does not host the content and does not verify that the content "
@@ -133,65 +129,78 @@ msgstr ""
 "ακριβείς ή πλήρεις. Παρακαλούμε ακολουθήστε το σύνδεσμο προέλευσης του "
 "περιεχομένου για να τα επαληθεύσετε πριν από την χρήση της εικόνας."
 
-#: index.php:299
+#: index.php:304
 msgid "Alignment"
 msgstr "Στοίχιση"
 
-#: index.php:303 index.php:335
+#: index.php:308 index.php:340
 msgid "None"
 msgstr "Καμία"
 
-#: index.php:306
+#: index.php:311
 msgid "Left"
 msgstr "Aριστερά"
 
-#: index.php:309
+#: index.php:314
 msgid "Right"
 msgstr "Δεξιά"
 
-#: index.php:312
+#: index.php:317
 msgid "Center"
 msgstr "Κέντρο"
 
-#: index.php:318
+#: index.php:323
 msgid "Use"
 msgstr "Χρήση"
 
-#: index.php:322
+#: index.php:327
 msgid "Thumbnail image"
 msgstr "Μικρογραφία"
 
-#: index.php:325
+#: index.php:330
 msgid "Full image"
 msgstr "Πλήρης εικόνα"
 
-#: index.php:331
+#: index.php:336
 msgid "Link to"
 msgstr "Σύνδεση με"
 
-#: index.php:337
+#: index.php:342
 msgid "Original site"
 msgstr "Αρχικός ιστότοπος"
 
-#: index.php:339
+#: index.php:344
 msgid "Original image"
 msgstr "Αρχική εικόνα"
 
-#: index.php:347
+#: index.php:352
 msgid "Open in new windows"
 msgstr "Άνοιγμα σε νέo παράθυρo"
 
-#: index.php:354
+#: index.php:359
 msgid "Rel nofollow"
 msgstr "Rel nofollow"
 
-#: index.php:368 index.php:384
+#: index.php:373 index.php:389
 msgid "Insert"
 msgstr "Εισαγωγή"
 
-#: index.php:373
+#: index.php:378
 msgid "Featured"
 msgstr "Χαρακτηρ. άρθρου"
+
+#: wp-ccsearch-pointer.php:76
+msgid "Find an image"
+msgstr "Βρείτε μια εικόνα με άδεια Creative Commons"
+
+#: wp-ccsearch-pointer.php:77
+msgid ""
+"Use it to search millions of free photos then insert an image into content "
+"or set as featured image very quickly."
+msgstr ""
+"Χρησιμοποιήστε το για να αναζητήσετε εκατομμύρια δωρεάν εικόνες με άδεια "
+"Creative Commons και στη συνέχεια να εισάγετε μία από αυτές στο κείμενο "
+"σας ή την ορίσετε ως χαρακτηριστική εικόνα πολύ γρήγορα."
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/lenasterg/wp_ccsearch"
@@ -202,9 +211,9 @@ msgid ""
 "WP CCSearch helps you search millions of free photos then insert into "
 "content or set as featured image very quickly."
 msgstr ""
-"Το WP CCSearch σας βοηθά να αναζητήσετε εκατομμύρια δωρεάν φωτογραφίες και "
-"στη συνέχεια να εισάγετε μία από αυτές σε κείμενο σας ή την ορίσετε ως "
-"χαρακτηριστική εικόνα πολύ γρήγορα."
+"Το WP CCSearch σας βοηθά να αναζητήσετε εκατομμύρια δωρεάν εικόνες  με "
+"άδεια Creative Commons και στη συνέχεια να εισάγετε μία από αυτές στο "
+"κείμενο σας ή την ορίσετε ως χαρακτηριστική εικόνα πολύ γρήγορα."
 
 #. Author of the plugin/theme
 msgid "lenasterg, nts on cti.gr, sch.gr"
@@ -213,6 +222,3 @@ msgstr "lenasterg, nts on cti.gr, sch.gr"
 #. Author URI of the plugin/theme
 msgid "https://lenasterg.wordpress.com"
 msgstr "https://lenasterg.wordpress.com"
-
-#~ msgid "https://wpccsearch.net/"
-#~ msgstr "https://wpccsearch.net/"

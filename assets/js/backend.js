@@ -188,14 +188,6 @@ jQuery(document).ready(function ($) {
         $('#wpcc_save_only span').html(' (' + wpcc_selected.length + ')');
     });
 
-//    $('body').on('change', '#wpcc_title', function () {
-//        wpcc_change_value(wpcc_current, 'img_title', $(this).val());
-//    });
-//
-//    $('body').on('change', '#wpcc_caption', function () {
-//        wpcc_change_value(wpcc_current, 'img_caption', $(this).val());
-//    });
-
 });
 
 function wpcc_search(page) {
