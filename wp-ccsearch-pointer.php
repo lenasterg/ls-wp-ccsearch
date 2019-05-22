@@ -69,7 +69,7 @@ add_filter( 'wp_ccsearch_admin_pointers-page', 'wp_ccsearch_register_pointer' );
  */
 function wp_ccsearch_register_pointer( $p ) {
     $p['cs90190'] = array(
-		'id'=>'wpcc_pointer',
+		'pointer_id'=>'wpcc_pointer',
         'target' => '#wpcc_btn',
         'options' => array(
             'content' => sprintf( '<h3> %s </h3> <p> %s </p>',

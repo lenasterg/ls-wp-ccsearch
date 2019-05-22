@@ -25,7 +25,10 @@ jQuery(document).ready(function ($) {
 //Close tooltip on button click
     $('body').on('click touch', '.wpcc_btn', function () {
           pointer = wp_ccsearch_Pointer.pointers[0];
-          $(pointer.target).pointer(options).pointer('close');
+        $.post(ajaxurl, {
+                    pointer: pointer.pointer_id,
+                    action: 'dismiss-wp-pointer'
+                });   
     });
     
     
