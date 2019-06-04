@@ -33,6 +33,7 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 = Features =
 
 - Search millions of free photos using CCsearch API
+- Filter by provider
 - Quick insert image with original URL or thumbmail
 - Use image as featured image
 - WPML integration
