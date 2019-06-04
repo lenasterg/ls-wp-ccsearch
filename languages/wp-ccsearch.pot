@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP CCSearch\n"
-"POT-Creation-Date: 2019-05-22 14:51+0300\n"
+"POT-Creation-Date: 2019-06-04 17:47+0300\n"
 "PO-Revision-Date: 2019-05-16 18:58+0300\n"
 "Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
 "Language-Team: Lena Stergatou <aqua6617@yahoo.com>\n"
@@ -109,13 +109,15 @@ msgstr ""
 msgid "NOTE: Please verify the license at the source"
 msgstr ""
 
+#: index.php:299
+msgid "before reuse"
+msgstr ""
+
 #: index.php:300
 msgid ""
-"CC Search aggregates data from publicly available repositories of open "
-"content. CC does not host the content and does not verify that the content "
-"is properly CC-licensed or that the attribution information is accurate or "
-"complete. Please follow the link to the source of the content to "
-"independently verify before reuse."
+"The images are aggregated from publicly available repositories of open "
+"content and we can not verify that are properly CC-licensed or that the "
+"attribution information is accurate or complete."
 msgstr ""
 
 #: index.php:304
