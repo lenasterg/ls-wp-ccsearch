@@ -29,6 +29,7 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 ## Features
 
 - Search millions of free images using CCsearch API
+- Filter by provider
 - Quick insert image with original URL or thumbmail
 - Use image as featured image
 - WPML integration
