@@ -3,7 +3,7 @@
   Plugin Name: WP CCSearch
   Plugin URI: https://github.com/lenasterg/wp_ccsearch
   Description: WP CCSearch helps you search millions of free photos then insert into content or set as featured image very quickly.
-  Version: 0.4.0
+  Version: 0.5.0
   Author: lenasterg, nts on cti.gr, sch.gr
   Author URI: https://lenasterg.wordpress.com
   Text Domain: wp-ccsearch
@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.4.0' );
+!defined( 'WPCC_VERSION' ) && define( 'WPCC_VERSION', '0.5.0' );
 !defined( 'WPCC_URI' ) && define( 'WPCC_URI', plugin_dir_url( __FILE__ ) );
 !defined( 'WPCC_REVIEWS' ) && define( 'WPCC_REVIEWS', 'https://wordpress.org/support/plugin/wp-ccsearch/reviews/?filter=5' );
 !defined( 'WPCC_CHANGELOGS' ) && define( 'WPCC_CHANGELOGS', 'https://wordpress.org/plugins/wp-ccsearch/#developers' );
@@ -296,8 +296,8 @@ if ( !class_exists( 'WPCCsearch' ) ) {
 									<label for="wpcc_caption"><?php esc_html_e( 'CC license', 'wp-ccsearch' ); ?>:</label><br/>
 									<input type="hidden" id="wpcc_caption" name="wpcc_caption">
 									<div id="wpcc_caption_display"></div>
-									<div class="wpcc_cc_verify"><?php _e( 'NOTE: Please verify the license at the source', 'wp-ccsearch' ); ?>:<span id="wpcc_sourcelink"></span>
-										<br/><?php _e( 'CC Search aggregates data from publicly available repositories of open content. CC does not host the content and does not verify that the content is properly CC-licensed or that the attribution information is accurate or complete. Please follow the link to the source of the content to independently verify before reuse.', 'wp-ccsearch' ); ?></div>
+									<div class="wpcc_cc_verify"><?php _e( 'NOTE: Please verify the license at the source', 'wp-ccsearch' ); ?>:<span id="wpcc_sourcelink"></span>  <?php _e('before reuse');?>.
+										<br/><?php _e( 'The images are aggregated from publicly available repositories of open content and we can not verify that are properly CC-licensed or that the attribution information is accurate or complete.', 'wp-ccsearch' ); ?></div>
 								</div>
 
 								<div class="wpcc_item_info">

@@ -4,7 +4,7 @@ var wpcc_opened = false;
 var wpcc_current = '';
 var wpcc_width_small = '630px';
 var wpcc_width_big = '930px';
-var wpcc_height = '600px';
+var wpcc_height = '700px';
 
 jQuery(document).ready(function ($) {
     let dropdown = $('#wpcc_provider');
@@ -55,6 +55,7 @@ jQuery(document).ready(function ($) {
         } else {
             $.colorbox({
                 width: wpcc_width_small,
+				initialHeight: wpcc_height,						   
                 height: wpcc_height,
                 inline: true,
                 href: "#wpcc_area",
@@ -75,10 +76,10 @@ jQuery(document).ready(function ($) {
             var insertsource = '';
             var align_class = '';
             var editor_id = $('#wpcc_editor_id').val();
-            if ($('#wpcc_align').val() != '') {
-                align = ' align="' + wpcc_escape_html($('#wpcc_align').val()) + '"';
-                align_class = ' class="' + wpcc_escape_html($('#wpcc_align').val()) + '"';
-            }
+           
+		   align = ' align="' + wpcc_escape_html($('#wpcc_align').val()) + '"';
+           align_class = ' class="wpcc_image ' + wpcc_escape_html($('#wpcc_align').val()) + '"';
+           
             var sid = wpcc_selected[i];
             if (wpcc_imgs[sid].img_caption != '') {
                 insert = '[caption id="" ' + align + ']';

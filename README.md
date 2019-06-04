@@ -55,6 +55,11 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 ## Changelog
 
+### 0.5.0
+* Add class to img
+* Larger colorbox height
+* New strings added
+* New screenshots
 
 ### 0.4.0 
 * Add wp-pointer on editor's button

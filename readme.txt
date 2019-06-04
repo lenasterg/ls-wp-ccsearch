@@ -58,6 +58,12 @@ Currently, the plugin needs Classic Editor (https://el.wordpress.org/plugins/cla
 
 == Changelog ==
 
+
+= 0.5.0 =
+* Add class to img
+* Larger colorbox height
+* New strings added
+* New screenshots
 = 0.4.0 =
 * Add wp-pointer on editor's button
 * Fix: Wrong textdomain
