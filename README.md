@@ -1,6 +1,6 @@
 # WP CCSearch 
 
-WP CCSearch helps you search millions of free images then insert into content or set as featured image very quickly.
+WP CCSearch helps you search millions of free images then insert into content or set as featured image very quickly. More details about the inspiration and how it works in https://opensource.creativecommons.org/blog/entries/2019-07-24-cc-search-wp-plugin/.
 
 # Test site
 You can test the plugin functionality at http://users.sch.gr/stergatu/wordpress/ by login via http://users.sch.gr/stergatu/wordpress/wp-login.php as testuser: testuser.
