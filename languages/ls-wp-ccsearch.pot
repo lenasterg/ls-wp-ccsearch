@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP CCSearch\n"
-"POT-Creation-Date: 2019-06-04 17:47+0300\n"
+"Project-Id-Version: Easy search and use CC-licensed images for WP\n"
+"POT-Creation-Date: 2019-08-02 17:02+0300\n"
 "PO-Revision-Date: 2019-05-16 18:58+0300\n"
 "Last-Translator: Lena Stergatou <aqua6617@yahoo.com>\n"
 "Language-Team: Lena Stergatou <aqua6617@yahoo.com>\n"
@@ -15,179 +15,170 @@ msgstr ""
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: index.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;"
+"esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: index.php:54 index.php:193
-msgid "Image with CC licence"
+#: index.php:54 index.php:189
+msgid "Image with CC license"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
 #: index.php:73 index.php:84
-msgid "WP CCSearch"
+msgid "Easy search and use CC-licensed images for WP"
 msgstr ""
 
-#: index.php:87
-#, php-format
-msgid ""
-"Thank you for using our plugin! If you are satisfied, please reward it a "
-"full five-star %s rating."
-msgstr ""
-
-#: index.php:90
+#: index.php:88
 msgid "Reviews"
 msgstr ""
 
-#: index.php:92
+#: index.php:90
 msgid "Changelogs"
 msgstr ""
 
-#: index.php:94
+#: index.php:92
 msgid "Discussion"
 msgstr ""
 
-#: index.php:100
+#: index.php:98
 msgid "How to use?"
 msgstr ""
 
-#: index.php:106
-msgid "1. Press the \"Image with CC Licence\" button above editor"
+#: index.php:104
+msgid "1. Press the \"Image with CC License\" button above editor"
 msgstr ""
 
-#: index.php:109
+#: index.php:107
 msgid "2. Type any key to search"
 msgstr ""
 
-#: index.php:112
+#: index.php:110
 msgid "3. Choose the photo as you want then insert or set featured"
 msgstr ""
 
-#: index.php:134
+#: index.php:132
 msgid "by"
 msgstr ""
 
-#: index.php:135
+#: index.php:133
 msgid "is licensed under"
 msgstr ""
 
-#: index.php:136
+#: index.php:134
 msgid "About"
 msgstr ""
 
-#: index.php:137
+#: index.php:135
 msgid "results / Pages"
 msgstr ""
 
-#: index.php:138
+#: index.php:136
 msgid "All providers"
 msgstr ""
 
-#: index.php:173
+#: index.php:171
 msgid "Permissions check failed"
 msgstr ""
 
-#: index.php:274
+#: index.php:270
 msgid "Use only Latin letters"
 msgstr ""
 
-#: index.php:276
+#: index.php:272
 msgid "keyword"
 msgstr ""
 
-#: index.php:279
+#: index.php:275
 msgid "Search"
 msgstr ""
 
-#: index.php:296
+#: index.php:292
 msgid "CC license"
 msgstr ""
 
-#: index.php:299
+#: index.php:295
 msgid "NOTE: Please verify the license at the source"
 msgstr ""
 
-#: index.php:299
+#: index.php:295
 msgid "before reuse"
 msgstr ""
 
-#: index.php:300
+#: index.php:296
 msgid ""
-"The images are aggregated from publicly available repositories of open "
-"content and we can not verify that are properly CC-licensed or that the "
-"attribution information is accurate or complete."
+"The images are aggregated from publicly available repositories of open content and we can not verify "
+"that are properly CC-licensed or that the attribution information is accurate or complete."
 msgstr ""
 
-#: index.php:304
+#: index.php:300
 msgid "Alignment"
 msgstr ""
 
-#: index.php:308 index.php:340
+#: index.php:304 index.php:336
 msgid "None"
 msgstr ""
 
-#: index.php:311
+#: index.php:307
 msgid "Left"
 msgstr ""
 
-#: index.php:314
+#: index.php:310
 msgid "Right"
 msgstr ""
 
-#: index.php:317
+#: index.php:313
 msgid "Center"
 msgstr ""
 
-#: index.php:323
+#: index.php:319
 msgid "Use"
 msgstr ""
 
-#: index.php:327
+#: index.php:323
 msgid "Thumbnail image"
 msgstr ""
 
-#: index.php:330
+#: index.php:326
 msgid "Full image"
 msgstr ""
 
-#: index.php:336
+#: index.php:332
 msgid "Link to"
 msgstr ""
 
-#: index.php:342
+#: index.php:338
 msgid "Original site"
 msgstr ""
 
-#: index.php:344
+#: index.php:340
 msgid "Original image"
 msgstr ""
 
-#: index.php:352
+#: index.php:348
 msgid "Open in new windows"
 msgstr ""
 
-#: index.php:359
+#: index.php:355
 msgid "Rel nofollow"
 msgstr ""
 
-#: index.php:373 index.php:389
+#: index.php:369 index.php:385
 msgid "Insert"
 msgstr ""
 
-#: index.php:378
+#: index.php:374
 msgid "Featured"
 msgstr ""
 
-#: wp-ccsearch-pointer.php:76
+#: ls-wp-ccsearch-pointer.php:76
 msgid "Find an image"
 msgstr ""
 
-#: wp-ccsearch-pointer.php:77
+#: ls-wp-ccsearch-pointer.php:77
 msgid ""
-"Use it to search millions of free photos then insert an image into content "
-"or set as featured image very quickly."
+"Use it to search millions of free photos then insert an image into content or set as featured image "
+"very quickly."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -196,8 +187,9 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"WP CCSearch helps you search millions of free photos then insert into "
-"content or set as featured image very quickly."
+"Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the "
+"Creative Commons Catalog API and insert the original image into content or set as featured image very "
+"quickly."
 msgstr ""
 
 #. Author of the plugin/theme

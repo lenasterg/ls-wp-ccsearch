@@ -1,13 +1,13 @@
 /* Dashboard Widget */
 
-#wpccsearch_dashboard_widget .inside {
+#lswpccsearch_dashboard_widget .inside {
     padding: 0 12px;
     margin: 0;
     max-height: 365px;
     overflow-y: auto;
 }
 
-#wpccsearch_dashboard_widget .item {
+#lswpccsearch_dashboard_widget .item {
     border-bottom: 1px solid #eee;
     margin: 0 -12px;
     padding: 10px 12px;
@@ -15,15 +15,15 @@
     width: 100%;
 }
 
-#wpccsearch_dashboard_widget .item:hover {
+#lswpccsearch_dashboard_widget .item:hover {
     background-color: #fafafa;
 }
 
-#wpccsearch_dashboard_widget .item:last-child {
+#lswpccsearch_dashboard_widget .item:last-child {
     border-bottom: none;
 }
 
-#wpccsearch_dashboard_widget .item a {
+#lswpccsearch_dashboard_widget .item a {
     display: inline-block;
     width: 100%;
     color: #23282d;
@@ -31,7 +31,7 @@
     box-shadow: none;
 }
 
-#wpccsearch_dashboard_widget .item img {
+#lswpccsearch_dashboard_widget .item img {
     width: 40px;
     height: 40px;
     float: left;
@@ -39,44 +39,44 @@
     border-radius: 2px;
 }
 
-#wpccsearch_dashboard_widget .item .info {
+#lswpccsearch_dashboard_widget .item .info {
     opacity: .5;
 }
 
 /* Welcome Page */
 
-.wpccsearch_welcome_page {
+.lswpccsearch_welcome_page {
     background-image: url('../images/wpc-bg.png');
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.wpccsearch_welcome_page .card {
+.lswpccsearch_welcome_page .card {
     border-color: #eee;
 }
 
-.wpccsearch_welcome_page img {
+.lswpccsearch_welcome_page img {
     max-width: 100%;
     height: auto;
 }
 
 /* Settings Page */
 
-.wpccsearch_settings_page img {
+.lswpccsearch_settings_page img {
     max-width: 100%;
     height: auto;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_desc a {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_desc a {
     outline: none;
     box-shadow: none;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_nav .nav-tab-wrapper {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_nav .nav-tab-wrapper {
     border-color: #eee;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_nav .nav-tab-wrapper a {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_nav .nav-tab-wrapper a {
     margin-left: 0;
     margin-right: 7px;
     padding: 10px 20px;
@@ -85,12 +85,12 @@
     border-color: #eee;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_nav .nav-tab-wrapper a.nav-tab-active, .wpccsearch_settings_page .wpccsearch_settings_page_nav .nav-tab-wrapper a:hover {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_nav .nav-tab-wrapper a.nav-tab-active, .lswpccsearch_settings_page .lswpccsearch_settings_page_nav .nav-tab-wrapper a:hover {
     background-color: #fafafa;
     border-color: #fafafa;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content {
     border-width: 0 1px 1px 1px;
     border-style: solid;
     border-color: #eee;
@@ -100,39 +100,39 @@
     margin: 0;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content table tr.heading th, .wpccsearch_settings_page .wpccsearch_settings_page_content table tr.heading td, .wpccsearch_settings_page .wpccsearch_settings_page_content table tr.submit th {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content table tr.heading th, .lswpccsearch_settings_page .lswpccsearch_settings_page_content table tr.heading td, .lswpccsearch_settings_page .lswpccsearch_settings_page_content table tr.submit th {
     background-color: #fafafa;
     padding: 15px 20px;
     margin: 0;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content table tr.heading {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content table tr.heading {
     border-bottom: 1px dashed #eee;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content table {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content table {
     margin: 0;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content .wpccsearch_settings_page_content_text {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content .lswpccsearch_settings_page_content_text {
     padding: 20px;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content .wpccsearch_settings_page_content_text p {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content .lswpccsearch_settings_page_content_text p {
     margin-top: 0;
     margin-bottom: 15px;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content .wpccsearch_settings_page_content_text p:last-child {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content .lswpccsearch_settings_page_content_text p:last-child {
     margin-bottom: 0;
 }
 
-.wpccsearch_settings_page .wpccsearch_settings_page_content table tr th, .wpccsearch_settings_page .wpccsearch_settings_page_content table tr td {
+.lswpccsearch_settings_page .lswpccsearch_settings_page_content table tr th, .lswpccsearch_settings_page .lswpccsearch_settings_page_content table tr td {
     padding: 15px 20px;
     border-bottom: 1px dashed #eee;
 }
 
-.wpccsearch_plugins .item {
+.lswpccsearch_plugins .item {
     border-bottom: 1px solid #eee;
     margin: 0;
     padding: 10px 0;
@@ -140,15 +140,15 @@
     width: 100%;
 }
 
-.wpccsearch_plugins .item:hover {
+.lswpccsearch_plugins .item:hover {
     background-color: #fafafa;
 }
 
-.wpccsearch_plugins .item:last-child {
+.lswpccsearch_plugins .item:last-child {
     border-bottom: none;
 }
 
-.wpccsearch_plugins .item a {
+.lswpccsearch_plugins .item a {
     display: inline-block;
     width: 100%;
     color: #23282d;
@@ -157,7 +157,7 @@
     box-shadow: none;
 }
 
-.wpccsearch_plugins .item img {
+.lswpccsearch_plugins .item img {
     width: 40px;
     height: 40px;
     float: left;
@@ -165,7 +165,7 @@
     border-radius: 2px;
 }
 
-.wpccsearch_plugins .item .info {
+.lswpccsearch_plugins .item .info {
     opacity: .5;
 }
 

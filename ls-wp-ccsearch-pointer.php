@@ -69,12 +69,12 @@ add_filter( 'wp_ccsearch_admin_pointers-page', 'wp_ccsearch_register_pointer' );
  */
 function wp_ccsearch_register_pointer( $p ) {
     $p['cs90190'] = array(
-		'pointer_id'=>'wpcc_pointer',
-        'target' => '#wpcc_btn',
+		'pointer_id'=>'lswpcc_pointer',
+        'target' => '#lswpcc_btn',
         'options' => array(
             'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
-                __( 'Find an image' ,'wp-ccsearch'),
-                __( 'Use it to search millions of free photos then insert an image into content or set as featured image very quickly.','wp-ccsearch')
+                __( 'Find an image' ,'ls-wp-ccsearch'),
+                __( 'Use it to search millions of free photos then insert an image into content or set as featured image very quickly.','ls-wp-ccsearch')
             ),
             'position' => array( 'edge' => 'left', 'align' => 'left' )
         )

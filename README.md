@@ -1,6 +1,6 @@
-# WP CCSearch 
+# Easy search and use CC-licensed images for WP 
 
-WP CCSearch helps you search millions of free images then insert into content or set as featured image very quickly. More details about the inspiration and how it works in https://opensource.creativecommons.org/blog/entries/2019-07-24-cc-search-wp-plugin/.
+Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images without leaving WordPress editor and use one into your post content or set as featured image very quickly. More details about the inspiration and how it works in https://opensource.creativecommons.org/blog/entries/2019-07-24-cc-search-wp-plugin/.
 
 # Test site
 You can test the plugin functionality at http://users.sch.gr/stergatu/wordpress/ by login via http://users.sch.gr/stergatu/wordpress/wp-login.php as testuser: testuser.
@@ -8,11 +8,11 @@ You can test the plugin functionality at http://users.sch.gr/stergatu/wordpress/
 
 ## Description
 
-WP CCSearch helps you search millions of free images using the CCsearch API (https://api.creativecommons.engineering/#tag/image)  then insert the original image into content or set as featured image very quickly.
+Easy search and use CC-licensed images for WP helps you search millions of free images using the Creative Commons Catalog API (https://api.creativecommons.engineering/#tag/image) then insert the original image into content or set as featured image very quickly.
 It allows the user to filter the provider source.
 The plugin is inspired and based on the https://ccsearch.creativecommons.org/ and it wouldnt't be possible without the Creative Commons Catalog API https://api.creativecommons.engineering/
 
-After the plugin's activation, you can see the "Image with CC Licence"  button above the editor and as option into the "Add Media" pop-up window. 
+After the plugin's activation, you can see the "Image with CC License"  button above the editor and as option into the "Add Media" pop-up window. 
 By pressing it  you can search using Latin characters for an image, browse the returned images, preview an image and its license and adjuct the image settings: 
  - use of thumbnail or original image,
  - set the image link (if any). 
@@ -28,24 +28,28 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 ## Features
 
-- Search millions of free images using CCsearch API
-- Filter by provider
-- Quick insert image with original URL or thumbmail
-- Use image as featured image
-- WPML integration
+- Works in WordPress editor and add a button above the content text area and into the “Add Media” pop-up window.
+- Via a pop-up window, allows searching through millions of images using Creative Commons Catalog API power.
+- Allows filtering by a provider
+- Paginated results
+- Quick insert original image or thumbnail with an (optional) link to the image URL or the original site
+- Use image as a featured image for the blog post
+- WPML compatible
 - Multisite compatible
+- Translation ready (it’s already translated in Greek)
+- Tested up to WordPress 5.2.2 with Classic Editor plugin
 
 
 ## Installation
 
-1. Unzip the wp-ccsearch.zip
-2. Copy wp-ccsearch folder to wp-content/plugins
-3. Go to Plugins > Installed Plugins, find WP CCSearch and click Active
-4. Now when you create/edit the post, you can see the "Image with CC Licence"  button above the editor and as option into the "Add Media" pop-up window. 
+1. Unzip the ls-wp-ccsearch.zip
+2. Copy ls-wp-ccsearch folder to wp-content/plugins
+3. Go to Plugins > Installed Plugins, find Easy search and use CC-licensed images for WP and click Active
+4. Now when you create/edit the post, you can see the "Image with CC License"  button above the editor and as option into the "Add Media" pop-up window. 
 5. Enjoy!
 
 ## Screenshots
-1. The "Image with CC licence" button on editor
+1. The "Image with CC license" button on editor
 2. Search for an image 
 3. Preview of an image and its license.
 4. Image settings: use of thumbnail or original image, set the image link (if any). Insert the image into the post or as featured image.
@@ -54,6 +58,12 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 
 ## Changelog
+
+### 1.0 
+* Replaces curl with WordPress native functionality
+* Fix some typos
+* Sanitize input
+* Renamed from WP CCsearch to Easy search and use CC-licensed images for WP
 
 ### 0.5.0
 * Add class to img
@@ -73,7 +83,7 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 
 ### 0.2.0 
-* Fix wp-ccsearch.pot
+* Fix ls-wp-ccsearch.pot
 * Greek translation added
 
 ### 0.1 
