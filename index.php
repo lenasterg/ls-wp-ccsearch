@@ -22,9 +22,9 @@ defined( 'ABSPATH' ) || exit;
 //include( 'includes/wpc-menu.php' );
 //include( 'includes/wpc-dashboard.php' );
 
-if ( !class_exists( 'WPCCsearch' ) ) {
+if ( !class_exists( 'LS_WPCCsearch' ) ) {
 
-	class WPCCsearch {
+	class LS_WPCCsearch {
 
 		function __construct() {
 			add_action( 'plugins_loaded', array( $this, 'lswpcc_load_textdomain' ) );
