@@ -397,5 +397,5 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 
 	}
 
-	new WPCCsearch();
+	new LS_WPCCsearch();
 }
