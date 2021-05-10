@@ -12,13 +12,13 @@ jQuery(document).ready(function ($) {
     dropdown.append('<option value="">'+lswpcc_vars.lswpcc_allproviders+'</option>');
     dropdown.prop('selectedIndex', 0);
 
-    const url = 'https://api.creativecommons.engineering/statistics/image?format=json';
+   const url ='https://api.creativecommons.engineering/v1/sources?format=json';
 
 // Populate dropdown with list of providers, since v0.3.0
     $.getJSON(url, function (data) {
         data.sort(SortByDisplay);
         $.each(data, function (key, entry) {
-            dropdown.append($('<option></option>').attr('value', entry.provider_name).text(entry.display_name));
+            dropdown.append($('<option></option>').attr('value', entry.source_name).text(entry.display_name));
         })
     });
 
