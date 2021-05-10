@@ -1,18 +1,18 @@
 <?php
 /*
   Plugin Name: Easy search and use CC-licensed images for WP
-  Plugin URI: https://github.com/lenasterg/wp_ccsearch
+  Plugin URI: https://github.com/lenasterg/ls-wp-ccsearch
   Description: Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the Creative Commons Catalog API and insert the original image into content or set as featured image very quickly.
-  Version: 1.0
+  Version: 2.0
   Author: lenasterg, nts on cti.gr, sch.gr
-  Author URI: https://lenasterg.wordpress.com
+  Author URI:
   Text Domain: ls-wp-ccsearch
   Domain Path: /languages/
  */
 
 defined( 'ABSPATH' ) || exit;
 
-!defined( 'LS_WPCC_VERSION' ) && define( 'LS_WPCC_VERSION', '1.0' );
+!defined( 'LS_WPCC_VERSION' ) && define( 'LS_WPCC_VERSION', '2.0' );
 !defined( 'LS_WPCC_URI' ) && define( 'LS_WPCC_URI', plugin_dir_url( __FILE__ ) );
 !defined( 'LS_WPCC_REVIEWS' ) && define( 'LS_WPCC_REVIEWS', 'https://wordpress.org/support/plugin/ls-wp-ccsearch/reviews/' );
 !defined( 'LS_WPCC_CHANGELOGS' ) && define( 'LS_WPCC_CHANGELOGS', 'https://wordpress.org/plugins/ls-wp-ccsearch/#developers' );
@@ -84,6 +84,8 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 				<h1 class="lswpccsearch_settings_page_title"><?php echo esc_html__( 'Easy search and use CC-licensed images for WP', 'ls-wp-ccsearch' ) . ' ' . LS_WPCC_VERSION; ?></h1>
 				<div class="lswpccsearch_settings_page_desc about-text">
 					<p>
+																																																																																																																								 
+		   
 						<a href="<?php echo esc_url( LS_WPCC_REVIEWS ); ?>"
 						   target="_blank"><?php esc_html_e( 'Reviews', 'ls-wp-ccsearch' ); ?></a> | <a
 						   href="<?php echo esc_url( LS_WPCC_CHANGELOGS ); ?>"
@@ -155,33 +157,37 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 
 		/**
 		 * @version 3.0
+									  
 		 */
 		function lswpcc_search_ajax() {
 			$licence = $provider = '';
 			if ( isset( $_POST['provider'] ) ) {
-				$provider = '&provider=' . esc_html( sanitize_key( $_POST['provider'] ) );
+				$provider = '&source=' . sanitize_text_field( $_POST['provider'] );
 			}
 			//	$provider = '&provider=500px,behance,CAPL,flickr';
 			//	$licence='&li=cc0';
 			//	$lt = '&lt=modification';
 //			$lt = '&lt=commercial';
-			$lt = '&li=BY-NC-SA';
+			$lt = '&licence=BY-NC-SA';
 
 			if ( !isset( $_POST['lswpcc_nonce'] ) || !wp_verify_nonce( $_POST['lswpcc_nonce'], 'lswpcc_nonce' ) ) {
 				die( esc_html__( 'Permissions check failed', 'ls-wp-ccsearch' ) );
 			}
-			
-			$page= absint($_POST['page']);
+
+			$page = absint( $_POST['page'] );
 			if ( isset( $_POST['key'] ) ) {
-				$title= esc_url( sanitize_text_field( $_POST['key'] ) );
-				$urli = 'https://api.creativecommons.engineering/image/search?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&title=' .$title . '&pagesize=20&page=' . $page;
+				$title = sanitize_text_field( $_POST['key'] );
+				$urli = 'https://api.creativecommons.engineering/v1/images?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&q=' .  $_POST['key'] . '&page=' . $page ;
 			} else {
-				$urli = 'https://api.creativecommons.engineering/image/search?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&pagesize=20&page=1';
+				$urli = 'https://api.creativecommons.engineering/v1/images?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&pagesize=20&page=1';
 			}
 
 			$response = wp_safe_remote_get( $urli );
 			$body = wp_remote_retrieve_body( $response );
 			echo $body;
+																			  
+						 
+					 
 			die();
 		}
 
@@ -257,7 +263,7 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 		}
 
 		/**
-		 * version 2.0, lenasterg
+		 * version 3.0, lenasterg
 		 * @param type $full
 		 */
 		function lswpcc_area( $full = false ) {
@@ -267,7 +273,6 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 					<div class="lswpcc_area_content_col lswpcc_area_content_left">
 						<div class="lswpcc_area_content_col_inner">
 							<div class="lswpcc_area_content_col_top">
-								<label for="lswpcc_input"><?php _e( 'Use only Latin letters', 'ls-wp-ccsearch' ); ?>  </label>
 								<input type="text" id="lswpcc_input" name="lswpcc_input" class="w100"
 									   placeholder="<?php esc_html_e( 'keyword', 'ls-wp-ccsearch' ); ?>"/>
 								<select id="lswpcc_provider" name="lswpcc_provider"></select>
