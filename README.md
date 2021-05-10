@@ -1,23 +1,18 @@
 # Easy search and use CC-licensed images for WP 
 
-Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images without leaving WordPress editor and use one into your post content or set as featured image very quickly. More details about the inspiration and how it works in https://opensource.creativecommons.org/blog/entries/2019-07-24-cc-search-wp-plugin/.
-
-# Test site
-You can test the plugin functionality at http://users.sch.gr/stergatu/wordpress/ by login via http://users.sch.gr/stergatu/wordpress/wp-login.php as testuser: testuser.
+Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images without leaving WordPress editor and use one into your post content or set as featured image very quickly.
 
 
 ## Description
-
-Easy search and use CC-licensed images for WP helps you search millions of free images using the Creative Commons Catalog API (https://api.creativecommons.engineering/#tag/image) then insert the original image into content or set as featured image very quickly.
+Easy search and use CC-licensed images for WP helps you search millions of free photos using the [Creative Commons Catalog API](https://api.creativecommons.engineering/#tag/image) then insert the original image into content or set as featured image very quickly.
 It allows the user to filter the provider source.
-The plugin is inspired and based on the https://ccsearch.creativecommons.org/ and it wouldnt't be possible without the Creative Commons Catalog API https://api.creativecommons.engineering/
+The plugin is inspired and based on the [CCSearch] (https://ccsearch.creativecommons.org/) and it wouldnt't be possible without the  [Creative Commons Catalog API](https://api.creativecommons.engineering)
 
 After the plugin's activation, you can see the "Image with CC License"  button above the editor and as option into the "Add Media" pop-up window. 
-By pressing it  you can search using Latin characters for an image, browse the returned images, preview an image and its license and adjuct the image settings: 
+By pressing it  you can search using Latin characters for an image, browse the returned images, preview an image and its license and adjust the image settings: 
  - use of thumbnail or original image,
  - set the image link (if any). 
  - Insert the image into the post or as featured image.
-
 
 NOTE: Please, verify the license at the source. CC Search aggregates data from publicly available repositories of open content. 
 Creative Commons does not host the content and does not verify that the content is properly CC-licensed or that the attribution information is accurate or complete. 
@@ -58,6 +53,9 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 
 ## Changelog
+### 2.0 
+* Changes at creativecommons API urls
+* Support also non -latin keywords
 
 ### 1.0 
 * Replaces curl with WordPress native functionality
