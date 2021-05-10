@@ -1,6 +1,7 @@
 # Easy search and use CC-licensed images for WP 
 
 Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images without leaving WordPress editor and use one into your post content or set as featured image very quickly.
+
 You can download the final stable version via the WordPress.org repository at https://wordpress.org/plugins/ls-wp-ccsearch/
 
 
