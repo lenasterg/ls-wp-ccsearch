@@ -9,21 +9,18 @@ var lswpcc_height = '700px';
 jQuery(document).ready(function ($) {
     let dropdown = $('#lswpcc_provider');
     dropdown.empty();
-    dropdown.append('<option value="">' + lswpcc_vars.lswpcc_allproviders + '</option>');
+    dropdown.append('<option value="">'+lswpcc_vars.lswpcc_allproviders+'</option>');
     dropdown.prop('selectedIndex', 0);
 
-    const url = 'https://api.openverse.engineering/v1/images/stats/?format=json';
-    //Populate dropdown with list of providers, since v1.0
-    $.ajax({
-        url: url,
-        jsonp: "$jsonp",
-        dataType: "json"
-    }).done(function (data) {
+   const url ='https://api.creativecommons.engineering/v1/sources?format=json';
+
+// Populate dropdown with list of providers, since v0.3.0
+    $.getJSON(url, function (data) {
+        data.sort(SortByDisplay);
         $.each(data, function (key, entry) {
             dropdown.append($('<option></option>').attr('value', entry.source_name).text(entry.display_name));
         })
     });
-
 
     $('.lswpcc_loading_text').hide();
 
@@ -58,7 +55,7 @@ jQuery(document).ready(function ($) {
         } else {
             $.colorbox({
                 width: lswpcc_width_small,
-                initialHeight: lswpcc_height,
+				initialHeight: lswpcc_height,						   
                 height: lswpcc_height,
                 inline: true,
                 href: "#lswpcc_area",
@@ -79,10 +76,10 @@ jQuery(document).ready(function ($) {
             var insertsource = '';
             var align_class = '';
             var editor_id = $('#lswpcc_editor_id').val();
-
-            align = ' align="' + lswpcc_escape_html($('#lswpcc_align').val()) + '"';
-            align_class = ' class="lswpcc_image ' + lswpcc_escape_html($('#lswpcc_align').val()) + '"';
-
+           
+		   align = ' align="' + lswpcc_escape_html($('#lswpcc_align').val()) + '"';
+           align_class = ' class="lswpcc_image ' + lswpcc_escape_html($('#lswpcc_align').val()) + '"';
+           
             var sid = lswpcc_selected[i];
             if (lswpcc_imgs[sid].img_caption != '') {
                 insert = '[caption id="" ' + align + ']';
@@ -207,7 +204,7 @@ function lswpcc_search(page) {
         page: page,
         lswpcc_nonce: lswpcc_vars.lswpcc_nonce
     };
-
+    
     jQuery.ajax({
         method: 'POST',
         url: lswpcc_vars.lswpcc_ajax_url,
@@ -414,6 +411,6 @@ function lswpcc_escape_html(html) {
  * @returns string
  * 
  */
-function SortByDisplay(x, y) {
+ function SortByDisplay(x, y) {
     return ((x.display_name == y.display_name) ? 0 : ((x.display_name > y.display_name) ? 1 : -1));
 }

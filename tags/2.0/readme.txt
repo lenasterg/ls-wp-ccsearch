@@ -3,7 +3,7 @@ Contributors: lenasterg, nts on cti.gr, sch.gr
 Donate link: 
 Tags: cc, creative commons, media library, free image, free photo, multisite
 Requires at least: 4.6
-Tested up to: 5.9
+Tested up to: 5.5.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -52,8 +52,7 @@ NOTE 2: Currently, the plugin needs [Classic Editor](https://wordpress.org/plugi
 - Info page
 
 = Credits =
-- The plugin is inspired and based on the [CC Search] (https://ccsearch.creativecommons.org/) and since version 2.0  wouldnt't be possible without the [Creative Commons Catalog API] (https://api.creativecommons.engineering/)
-- The plugin since version 3.0 uses the [openverse API] (https://api.openverse.engineering/v1/)
+- The plugin is inspired and based on the [CC Search] (https://ccsearch.creativecommons.org/) and it wouldnt't be possible without the [Creative Commons Catalog API] (https://api.creativecommons.engineering/)
 - The plugin's code is based on the [WP Pexels] (https://wordpress.org/plugins/wp-pexels/)  code by WPclever.net
 - Pointer's code is based on [https://code.tutsplus.com/articles/integrating-with-wordpress-ui-admin-pointers--wp-26853] (https://code.tutsplus.com/articles/integrating-with-wordpress-ui-admin-pointers--wp-26853)
 - Many thanks to [Stavroula Stasinou](https://www.linkedin.com/in/stavroulastas/) for the free creation of header image and plugin icon.
@@ -76,10 +75,6 @@ NOTE 2: Currently, the plugin needs [Classic Editor](https://wordpress.org/plugi
 6. The published post with the image.
 
 == Changelog ==
-
-= 3.0 =
-* Changes to use openverse API urls
-* Support also non -latin keywords
 
 = 2.0 =
 * Changes at creativecommons API urls

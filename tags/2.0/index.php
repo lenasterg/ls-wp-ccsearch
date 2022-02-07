@@ -2,9 +2,9 @@
 /*
   Plugin Name: Easy search and use CC-licensed images for WP
   Plugin URI: https://github.com/lenasterg/ls-wp-ccsearch
-  Description: Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the Openverse API and insert the original image into content or set as featured image very quickly.
-  Version: 3.0
-  Author: lenasterg, nts on cti.gr, sch.gr, lenasterg
+  Description: Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the Creative Commons Catalog API and insert the original image into content or set as featured image very quickly.
+  Version: 2.0
+  Author: lenasterg, nts on cti.gr, sch.gr
   Author URI:
   Text Domain: ls-wp-ccsearch
   Domain Path: /languages/
@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-!defined( 'LS_WPCC_VERSION' ) && define( 'LS_WPCC_VERSION', '3.0' );
+!defined( 'LS_WPCC_VERSION' ) && define( 'LS_WPCC_VERSION', '2.0' );
 !defined( 'LS_WPCC_URI' ) && define( 'LS_WPCC_URI', plugin_dir_url( __FILE__ ) );
 !defined( 'LS_WPCC_REVIEWS' ) && define( 'LS_WPCC_REVIEWS', 'https://wordpress.org/support/plugin/ls-wp-ccsearch/reviews/' );
 !defined( 'LS_WPCC_CHANGELOGS' ) && define( 'LS_WPCC_CHANGELOGS', 'https://wordpress.org/plugins/ls-wp-ccsearch/#developers' );
@@ -177,9 +177,9 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 			$page = absint( $_POST['page'] );
 			if ( isset( $_POST['key'] ) ) {
 				$title = sanitize_text_field( $_POST['key'] );
-				$urli = 'https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&q=' .  $_POST['key'] . '&page=' . $page ;
+				$urli = 'https://api.creativecommons.engineering/v1/images?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&q=' .  $_POST['key'] . '&page=' . $page ;
 			} else {
-				$urli = 'https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&pagesize=20&page=1';
+				$urli = 'https://api.creativecommons.engineering/v1/images?format=json&shouldPersistImages=true' . $lt . $licence . $provider . '&pagesize=20&page=1';
 			}
 
 			$response = wp_safe_remote_get( $urli );
