@@ -6,9 +6,9 @@ You can download the final stable version via the WordPress.org repository at ht
 
 
 ## Description
-Easy search and use CC-licensed images for WP helps you search millions of free photos using the [Creative Commons Catalog API](https://api.creativecommons.engineering/#tag/image) then insert the original image into content or set as featured image very quickly.
+Easy search and use CC-licensed images for WP helps you search millions of free photos using the [Openverse API](https://api.openverse.engineering/v1/) then insert the original image into content or set as featured image very quickly.
 It allows the user to filter the provider source.
-The plugin is inspired and based on the [CCSearch] (https://ccsearch.creativecommons.org/) and it wouldnt't be possible without the  [Creative Commons Catalog API](https://api.creativecommons.engineering)
+The plugin is inspired and based on the [CCSearch] (https://ccsearch.creativecommons.org/) and it wouldnt't be possible without the  [Openverse API](https://api.openverse.engineering/v1/)  and until version 2.0 the  [Creative Commons Catalog API](https://api.creativecommons.engineering).
 
 After the plugin's activation, you can see the "Image with CC License"  button above the editor and as option into the "Add Media" pop-up window. 
 By pressing it  you can search using Latin characters for an image, browse the returned images, preview an image and its license and adjust the image settings: 
@@ -55,6 +55,9 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 
 ## Changelog
+### 3.0 
+* Changes to use openverse API urls
+
 ### 2.0 
 * Changes at creativecommons API urls
 * Support also non -latin keywords
