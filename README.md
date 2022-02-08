@@ -55,6 +55,9 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 
 ## Changelog
+### 3.1 
+* Remove attributes images 
+
 ### 3.0 
 * Changes to use openverse API urls
 

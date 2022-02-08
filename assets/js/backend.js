@@ -256,7 +256,7 @@ function lswpcc_show_images(data, page) {
                 img_title = img_id;
             }
 
-            var lswpcc_licenses = lswpcc_find_licences(data.results[i].license, data.results[i].license_version);
+            var lswpcc_licenses = lswpcc_find_licences(data.results[i].license, data.results[i].license_version, data.results[i].license_url);
             var img_caption = ' <p style="font-size: 0.9rem;font-style: italic;"><a href="' + img_site + '">"' + img_title + '"</a> <span>' + lswpcc_vars.lswpcc_by_author + ' <a href="' + data.results[i].creator_url + '">' + data.results[i].creator + '</a></span> ' + lswpcc_vars.lswpcc_licensed_under + ' ' + lswpcc_licenses + '</p>';
 
             jQuery('#lswpcc_container').append('<div class="lswpcc_item" bg="' + img_thumb + '"><div class="lswpcc_item_overlay" rel="' + img_id + '"></div><div class="lswpcc_check"><input type="checkbox" value="' + img_id + '"/></div><span>' +
@@ -299,15 +299,38 @@ function lswpcc_show_images(data, page) {
     }
 }
 
+
 /** 
  * 
  * @param string license
  * @param string license_version
  * @returns string
  * @author lenasterg
+ * @version 2.0
+ */
+function lswpcc_find_licences(license, license_version, license_url) {
+  //  var license_img = '';
+    //var licenses = license.split('-');
+    //for (index = 0; index < licenses.length; ++index) {
+      //  license_img += ' <img style="width: 20px;height: 20px;margin-right: 3px;display: inline-block;" src="https://ccsearch.creativecommons.org/static/img/cc-' + licenses[index] + '_icon.svg" />';
+    //}
+
+    //var cc_img = ' <img style="width: 20px; height: 20px;margin-right: 3px;display: inline-block;" src="https://ccsearch.creativecommons.org/static/img/cc_icon.svg" />';
+
+    var img_licence_link = ' <a href="'+license_url + '"    target="_blank" rel="noopener noreferrer" > CC ' + license + '-' + license_version + '</a>';
+
+    return img_licence_link;
+}
+
+/** 
+ * Deprecated temporaly until cc images have a permanent location
+ * @param string license
+ * @param string license_version
+ * @returns string
+ * @author lenasterg
  * @version 1.0
  */
-function lswpcc_find_licences(license, license_version) {
+function lswpcc_find_licences_temp_depr(license, license_version) {
     var license_img = '';
     var licenses = license.split('-');
     for (index = 0; index < licenses.length; ++index) {
