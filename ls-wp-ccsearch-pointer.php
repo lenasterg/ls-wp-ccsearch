@@ -90,6 +90,6 @@ function wp_ccsearch_register_pointer( $p ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function wp_ccsearch_block_init() {
-	register_block_type(__DIR__ . '/build');
+	register_block_type(__DIR__ . '/blocks/build');
 }
 add_action('init', 'wp_ccsearch_block_init');
