@@ -64,7 +64,7 @@ function Edit() {
     fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=" + ${query}&licence=BY-NC-SA`).then(response => response.json()).then(data => setPics(data.results)).then(() => setIsLoading(false));
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     className: "form",
     onSubmit: searchPhotos
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {

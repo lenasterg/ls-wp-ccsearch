@@ -48,7 +48,7 @@ export default function Edit() {
   };
 
   return (
-    <>
+    <div {...useBlockProps()}>
       <form className="form" onSubmit={searchPhotos}>
         <label className="label" htmlFor="query"></label>
         <input
@@ -97,7 +97,7 @@ export default function Edit() {
           }}
         ></img>
       )}
-    </>
+    </div>
   );
 }
 
