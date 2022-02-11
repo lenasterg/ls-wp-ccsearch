@@ -53,8 +53,75 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('New Block – hello from the editor!', 'ls-wp-ccsearch'));
-}
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [query, setQuery] = React.useState("");
+  const [pics, setPics] = React.useState([]);
+  const [selectedPic, setSelectedPic] = React.useState(null);
+
+  const searchPhotos = async e => {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=" + ${query}&licence=BY-NC-SA`).then(response => response.json()).then(data => setPics(data.results)).then(() => setIsLoading(false));
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+    className: "form",
+    onSubmit: searchPhotos
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    className: "label",
+    htmlFor: "query"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    name: "query",
+    className: "input",
+    placeholder: `Try "dog" or "apple"`,
+    value: query,
+    onChange: e => setQuery(e.target.value)
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "submit",
+    className: "button"
+  }, "Search")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "openverse-search-results"
+  }, isLoading ? "Loading..." : "", !selectedPic && !isLoading && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, pics.map(pic => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card",
+    key: pic.id
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "openverse-image",
+    alt: `${pic.title} by ${pic.provider} - ${pic.license}`,
+    src: pic.thumbnail,
+    width: "50%",
+    height: "50%",
+    onClick: () => {
+      setSelectedPic(pic);
+    }
+  }))), " ")), selectedPic && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "openverse-image",
+    alt: `${selectedPic.title} by ${selectedPic.provider} - ${selectedPic.license}`,
+    src: selectedPic.url,
+    width: "50%",
+    height: "50%",
+    onClick: () => {
+      setSelectedPic(null);
+    }
+  }));
+} //I am not familiar with the API so I am keeping this here for now.
+
+/**
+category: null
+creator: "Unknown author"
+detail_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/?format=json"
+foreign_landing_url: "https://commons.wikimedia.org/w/index.php?curid=721264"
+id: "0aff3595-8168-440b-83ff-7a80b65dea42"
+license: "cc0"
+license_url: "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+license_version: "1.0"
+provider: "wikimedia"
+related_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/related/?format=json"
+source: "wikimedia"
+thumbnail: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/thumb/?format=json"
+title: "File:Open book 01.svg"
+url: "https://upload.wikimedia.org/wikipedia/co
+ */
 
 /***/ }),
 
