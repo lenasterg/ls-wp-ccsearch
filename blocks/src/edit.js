@@ -91,47 +91,51 @@ export default function Edit(props) {
   };
 
   return (
-    <div>
-      <Placeholder
-        className="bg-yellow"
-        icon={<BlockIcon icon="format-image" />}
-        label={__("CC-licensed images", "ls-wp-ccsearch")}
-        instructions={__(
-          "Quickly add openverce images in your site.",
-          "ls-wp-ccsearch"
-        )}
-      >
-        <CheckboxControl
-          label="Get images from all available sources"
-          help="Uncheck to select a provider from the list"
-          checked={searchAllSources}
-          onChange={(e) => {
-            setSearchAllSources(!searchAllSources);
-            searchAllSources ? getSources() : null;
-          }}
-        />
-        {sources && !searchAllSources && (
-          <SelectControl onChange={setActiveSource}>
-            <option value="">
-              {__("Search all sources", "ls-wp-ccsearch")}
-            </option>
-            {sources.map((provider) => (
-              <option
-                value={provider.source_name}
-                selected={activeSource === provider.source_name ? true : false}
-              >
-                {provider.display_name} ({provider.media_count})
+    <div {...useBlockProps()}>
+      {showSearch && (
+        <Placeholder
+          className="bg-yellow"
+          icon={<BlockIcon icon="format-image" />}
+          label={__("CC-licensed images", "ls-wp-ccsearch")}
+          instructions={__(
+            "Quickly add openverce images in your site.",
+            "ls-wp-ccsearch"
+          )}
+        >
+          <CheckboxControl
+            label="Get images from all available sources"
+            help="Uncheck to select a provider from the list"
+            checked={searchAllSources}
+            onChange={(e) => {
+              setSearchAllSources(!searchAllSources);
+              searchAllSources ? getSources() : null;
+            }}
+          />
+          {sources && !searchAllSources && (
+            <SelectControl onChange={setActiveSource}>
+              <option value="">
+                {__("Search all sources", "ls-wp-ccsearch")}
               </option>
-            ))}
-          </SelectControl>
-        )}
-        <TextControl
-          label="Keyword"
-          value={searchTerm}
-          onChange={(value) => setSearchTerm(value)}
-        />
-        <Button onClick={searchPhotos}>Search</Button>
-      </Placeholder>
+              {sources.map((provider) => (
+                <option
+                  value={provider.source_name}
+                  selected={
+                    activeSource === provider.source_name ? true : false
+                  }
+                >
+                  {provider.display_name} ({provider.media_count})
+                </option>
+              ))}
+            </SelectControl>
+          )}
+          <TextControl
+            label="Keyword"
+            value={searchTerm}
+            onChange={(value) => setSearchTerm(value)}
+          />
+          <Button onClick={searchPhotos}>Search</Button>
+        </Placeholder>
+      )}
       <div className="openverse-search-results">
         {loading ? "Loading..." : ""}
         {showSearch && apiData && (
@@ -180,9 +184,9 @@ export default function Edit(props) {
           </>
         )}
       </div>
-      {src && (
+      {!showSearch && src && (
         <>
-          <figure {...useBlockProps()}>
+          <figure>
             <img
               className="openverse-image"
               alt={alt}
@@ -193,7 +197,7 @@ export default function Edit(props) {
                 searchPhotos(e, 1);
               }}
             ></img>
-			<figcaption>{alt}</figcaption>
+            <figcaption>{alt}</figcaption>
           </figure>
         </>
       )}
