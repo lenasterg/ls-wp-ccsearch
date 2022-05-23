@@ -25,7 +25,6 @@ import { useState } from "@wordpress/element";
 import {
   useBlockProps,
   BlockIcon,
-  BlockControls,
 } from "@wordpress/block-editor";
 
 /**
