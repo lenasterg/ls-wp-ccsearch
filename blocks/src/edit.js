@@ -11,8 +11,6 @@ import {
   TextControl,
   SelectControl,
   CheckboxControl,
-  ToolbarGroup,
-  ToolbarButton,
   __experimentalGrid as Grid,
 } from "@wordpress/components";
 
