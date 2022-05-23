@@ -63,7 +63,6 @@ export default function Edit(props) {
   const searchPhotos = async (e, page) => {
     e.preventDefault();
     setLoading(true);
-    setshowSearch(true);
     fetch(
       `https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${
         searchTerm ? searchTerm : prevSearchTerm
@@ -74,9 +73,8 @@ export default function Edit(props) {
       .then((response) => response.json())
       .then((data) => {
         setApiResultData(data);
-        console.log(data);
       })
-      .then(() => setLoading(false))
+	   .then(() => { setLoading(false); setshowSearch(true); })
       .catch((error) => {});
   };
 

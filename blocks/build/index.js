@@ -78,11 +78,12 @@ function Edit(props) {
   const searchPhotos = async (e, page) => {
     e.preventDefault();
     setLoading(true);
-    setshowSearch(true);
     fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${searchTerm ? searchTerm : prevSearchTerm}&source=${activeSource ? activeSource : ""}&licence=BY-NC-SA&page_size=20&page=${page ? page : 1}`).then(response => response.json()).then(data => {
       setApiResultData(data);
-      console.log(data);
-    }).then(() => setLoading(false)).catch(error => {});
+    }).then(() => {
+      setLoading(false);
+      setshowSearch(true);
+    }).catch(error => {});
   }; //get sources from the openverse api
 
 
