@@ -73,7 +73,7 @@ function Edit(props) {
   const [activeSource, setActiveSource] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [sources, setsources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [searchAllSources, setSearchAllSources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
-  const [showSearch, setshowSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [showSearch, setshowSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true); // fetch the data from the API
 
   const searchPhotos = async (e, page) => {
     e.preventDefault();
@@ -84,7 +84,7 @@ function Edit(props) {
       setLoading(false);
       setshowSearch(true);
     }).catch(error => {});
-  }; //get sources from the openverse api
+  }; // get the image providers from the API
 
 
   const getSources = async e => {

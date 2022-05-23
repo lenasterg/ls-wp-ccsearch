@@ -51,12 +51,12 @@ export default function Edit(props) {
   const [apiData, setApiResultData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-
   const [activeSource, setActiveSource] = useState([]);
   const [sources, setsources] = useState([]);
   const [searchAllSources, setSearchAllSources] = useState(true);
   const [showSearch, setshowSearch] = useState(true);
 
+  // fetch the data from the API
   const searchPhotos = async (e, page) => {
     e.preventDefault();
     setLoading(true);
@@ -75,7 +75,7 @@ export default function Edit(props) {
       .catch((error) => {});
   };
 
-  //get sources from the openverse api
+  // get the image providers from the API
   const getSources = async (e) => {
     setLoading(true);
     fetch(`https://api.openverse.engineering/v1/images/stats/?format=json`)
