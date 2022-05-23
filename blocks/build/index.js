@@ -93,12 +93,7 @@ function Edit(props) {
     }).then(() => setLoading(false)).catch(error => {});
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
-    showTooltip: true,
-    icon: "update-alt" //   onClick={updateImage}
-    ,
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Try another image", "random-image")
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Placeholder, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Placeholder, {
     className: "bg-yellow",
     icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockIcon, {
       icon: "format-image"
@@ -160,24 +155,7 @@ function Edit(props) {
       searchPhotos(e, 1);
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, alt))));
-} //I am not familiar with the API so I am keeping this here for now.
-
-/**
-category: null
-creator: "Unknown author"
-detail_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/?format=json"
-foreign_landing_url: "https://commons.wikimedia.org/w/index.php?curid=721264"
-id: "0aff3595-8168-440b-83ff-7a80b65dea42"
-license: "cc0"
-license_url: "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
-license_version: "1.0"
-provider: "wikimedia"
-related_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/related/?format=json"
-source: "wikimedia"
-thumbnail: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/thumb/?format=json"
-title: "File:Open book 01.svg"
-url: "https://upload.wikimedia.org/wikipedia/co
- */
+}
 
 /***/ }),
 

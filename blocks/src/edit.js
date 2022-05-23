@@ -13,13 +13,7 @@ import {
   CheckboxControl,
   ToolbarGroup,
   ToolbarButton,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   __experimentalGrid as Grid,
-  __experimentalText as Text,
-  __experimentalHeading as Heading,
 } from "@wordpress/components";
 
 import { useState } from "@wordpress/element";
@@ -100,18 +94,6 @@ export default function Edit(props) {
 
   return (
     <div>
-      <BlockControls>
-        <ToolbarGroup>
-          {/* {isSourceAvailable && ( */}
-          <ToolbarButton
-            showTooltip
-            icon="update-alt"
-            //   onClick={updateImage}
-            label={__("Try another image", "random-image")}
-          />
-          {/* )} */}
-        </ToolbarGroup>
-      </BlockControls>
       <Placeholder
         className="bg-yellow"
         icon={<BlockIcon icon="format-image" />}
@@ -220,21 +202,3 @@ export default function Edit(props) {
     </div>
   );
 }
-
-//I am not familiar with the API so I am keeping this here for now.
-/**
-category: null
-creator: "Unknown author"
-detail_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/?format=json"
-foreign_landing_url: "https://commons.wikimedia.org/w/index.php?curid=721264"
-id: "0aff3595-8168-440b-83ff-7a80b65dea42"
-license: "cc0"
-license_url: "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
-license_version: "1.0"
-provider: "wikimedia"
-related_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/related/?format=json"
-source: "wikimedia"
-thumbnail: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/thumb/?format=json"
-title: "File:Open book 01.svg"
-url: "https://upload.wikimedia.org/wikipedia/co
- */
