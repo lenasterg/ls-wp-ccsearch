@@ -11,13 +11,13 @@ import {
   TextControl,
   SelectControl,
   CheckboxControl,
-} from "@wordpress/components";
-
-import {
+  ToolbarGroup,
+  ToolbarButton,
   Card,
   CardHeader,
   CardBody,
   CardFooter,
+  __experimentalGrid as Grid,
   __experimentalText as Text,
   __experimentalHeading as Heading,
 } from "@wordpress/components";
@@ -30,7 +30,11 @@ import { useState } from "@wordpress/element";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockIcon } from "@wordpress/block-editor";
+import {
+  useBlockProps,
+  BlockIcon,
+  BlockControls,
+} from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -49,29 +53,34 @@ import "./editor.scss";
  * @return {WPElement} Element to render.
  */
 
-export default function Edit() {
+export default function Edit(props) {
+  const { attributes, setAttributes } = props;
+  const { src, alt, prevSearchTerm } = attributes;
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState("");
-  const [apiData, setApiResultData] = useState("");
-  const [selectedPic, setSelectedPic] = useState(null);
+  const [apiData, setApiResultData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   const [activeSource, setActiveSource] = useState([]);
   const [sources, setsources] = useState([]);
   const [searchAllSources, setSearchAllSources] = useState(true);
+  const [showSearch, setshowSearch] = useState(true);
 
   const searchPhotos = async (e, page) => {
     e.preventDefault();
     setLoading(true);
+    setshowSearch(true);
     fetch(
-      `https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${searchTerm}&source=${
+      `https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${
+        searchTerm ? searchTerm : prevSearchTerm
+      }&source=${
         activeSource ? activeSource : ""
       }&licence=BY-NC-SA&page_size=20&page=${page ? page : 1}`
     )
       .then((response) => response.json())
       .then((data) => {
         setApiResultData(data);
+        console.log(data);
       })
       .then(() => setLoading(false))
       .catch((error) => {});
@@ -90,18 +99,30 @@ export default function Edit() {
   };
 
   return (
-    <div {...useBlockProps()}>
+    <div>
+      <BlockControls>
+        <ToolbarGroup>
+          {/* {isSourceAvailable && ( */}
+          <ToolbarButton
+            showTooltip
+            icon="update-alt"
+            //   onClick={updateImage}
+            label={__("Try another image", "random-image")}
+          />
+          {/* )} */}
+        </ToolbarGroup>
+      </BlockControls>
       <Placeholder
         className="bg-yellow"
         icon={<BlockIcon icon="format-image" />}
-        label={__("Openverse Image Block", "ls-wp-ccsearch")}
+        label={__("CC-licensed images", "ls-wp-ccsearch")}
         instructions={__(
           "Quickly add openverce images in your site.",
           "ls-wp-ccsearch"
         )}
       >
         <CheckboxControl
-          label="Search all image sources"
+          label="Get images from all available sources"
           help="Uncheck to select a provider from the list"
           checked={searchAllSources}
           onChange={(e) => {
@@ -133,32 +154,34 @@ export default function Edit() {
       </Placeholder>
       <div className="openverse-search-results">
         {loading ? "Loading..." : ""}
-        {!selectedPic && !loading && apiData && (
+        {showSearch && apiData && (
           <>
-            {apiData.result_count} - {apiData.page_count} - {apiData.page} -{" "}
-            {apiData.page_size}
-            {apiData.results.map((image) => (
-              <Card key={image.id}>
-                <CardBody>
-                  <img
-                    className="openverse-image"
-                    alt={`${image.title} by ${image.provider} - ${image.license}`}
-                    src={image.thumbnail}
-                    width="50%"
-                    height="50%"
-                    onClick={() => {
-                      setSelectedPic(pic);
-                    }}
-                  ></img>
-                  <p>{image.license}</p>
-                </CardBody>
-              </Card>
-            ))}
+            {apiData.results && (
+              <Grid>
+                {apiData.results.map((image) => (
+                  <figure>
+                    <img
+                      className="openverse-image"
+                      alt={`${image.title} by ${image.provider} - ${image.license}`}
+                      src={image.thumbnail}
+                      onClick={() => {
+                        setAttributes({
+                          src: image.url,
+                          alt: `${image.title} by ${image.provider} - ${image.license}`,
+                          prevSearchTerm: searchTerm,
+                        });
+                        setshowSearch(false);
+                      }}
+                    ></img>
+                    <figcaption>{`${image.title} by ${image.provider} - ${image.license}`}</figcaption>
+                  </figure>
+                ))}
+              </Grid>
+            )}
             {currentPage > 1 ? (
               <Button
                 onClick={(e) => {
                   setCurrentPage(currentPage > 0 ? currentPage - 1 : 1);
-
                   searchPhotos(e, currentPage > 0 ? currentPage - 1 : 1);
                 }}
               >
@@ -168,7 +191,6 @@ export default function Edit() {
             <Button
               onClick={(e) => {
                 setCurrentPage(currentPage + 1);
-
                 searchPhotos(e, currentPage + 1);
               }}
             >
@@ -178,19 +200,21 @@ export default function Edit() {
           </>
         )}
       </div>
-      {selectedPic && (
+      {src && (
         <>
-          <img
-            className="openverse-image"
-            alt={`${selectedPic.title} by ${selectedPic.provider} - ${selectedPic.license}`}
-            src={selectedPic.url}
-            width="50%"
-            height="50%"
-            onClick={() => {
-              setSelectedPic(null);
-            }}
-          ></img>
-          <p>{selectedPic.tags}</p>
+          <figure {...useBlockProps()}>
+            <img
+              className="openverse-image"
+              alt={alt}
+              src={src}
+              width="50%"
+              height="50%"
+              onClick={(e) => {
+                searchPhotos(e, 1);
+              }}
+            ></img>
+			<figcaption>{alt}</figcaption>
+          </figure>
         </>
       )}
     </div>

@@ -31,7 +31,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -57,22 +56,32 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function Edit() {
+function Edit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    src,
+    alt,
+    prevSearchTerm
+  } = attributes;
   const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const [query, setQuery] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)("");
-  const [apiData, setApiResultData] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)("");
-  const [selectedPic, setSelectedPic] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [apiData, setApiResultData] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [searchTerm, setSearchTerm] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)("");
   const [currentPage, setCurrentPage] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
   const [activeSource, setActiveSource] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [sources, setsources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [searchAllSources, setSearchAllSources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [showSearch, setshowSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
 
   const searchPhotos = async (e, page) => {
     e.preventDefault();
     setLoading(true);
-    fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${searchTerm}&source=${activeSource ? activeSource : ""}&licence=BY-NC-SA&page_size=20&page=${page ? page : 1}`).then(response => response.json()).then(data => {
+    setshowSearch(true);
+    fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${searchTerm ? searchTerm : prevSearchTerm}&source=${activeSource ? activeSource : ""}&licence=BY-NC-SA&page_size=20&page=${page ? page : 1}`).then(response => response.json()).then(data => {
       setApiResultData(data);
+      console.log(data);
     }).then(() => setLoading(false)).catch(error => {});
   }; //get sources from the openverse api
 
@@ -84,15 +93,20 @@ function Edit() {
     }).then(() => setLoading(false)).catch(error => {});
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Placeholder, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+    showTooltip: true,
+    icon: "update-alt" //   onClick={updateImage}
+    ,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Try another image", "random-image")
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Placeholder, {
     className: "bg-yellow",
     icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockIcon, {
       icon: "format-image"
     }),
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Openverse Image Block", "ls-wp-ccsearch"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("CC-licensed images", "ls-wp-ccsearch"),
     instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Quickly add openverce images in your site.", "ls-wp-ccsearch")
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
-    label: "Search all image sources",
+    label: "Get images from all available sources",
     help: "Uncheck to select a provider from the list",
     checked: searchAllSources,
     onChange: e => {
@@ -114,18 +128,19 @@ function Edit() {
     onClick: searchPhotos
   }, "Search")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "openverse-search-results"
-  }, loading ? "Loading..." : "", !selectedPic && !loading && apiData && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, apiData.result_count, " - ", apiData.page_count, " - ", apiData.page, " -", " ", apiData.page_size, apiData.results.map(image => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Card, {
-    key: image.id
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CardBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, loading ? "Loading..." : "", showSearch && apiData && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, apiData.results && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalGrid, null, apiData.results.map(image => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "openverse-image",
     alt: `${image.title} by ${image.provider} - ${image.license}`,
     src: image.thumbnail,
-    width: "50%",
-    height: "50%",
     onClick: () => {
-      setSelectedPic(pic);
+      setAttributes({
+        src: image.url,
+        alt: `${image.title} by ${image.provider} - ${image.license}`,
+        prevSearchTerm: searchTerm
+      });
+      setshowSearch(false);
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, image.license)))), currentPage > 1 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, `${image.title} by ${image.provider} - ${image.license}`)))), currentPage > 1 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
     onClick: e => {
       setCurrentPage(currentPage > 0 ? currentPage - 1 : 1);
       searchPhotos(e, currentPage > 0 ? currentPage - 1 : 1);
@@ -135,16 +150,16 @@ function Edit() {
       setCurrentPage(currentPage + 1);
       searchPhotos(e, currentPage + 1);
     }
-  }, "Next Page"), currentPage, " / ", apiData.page_count)), selectedPic && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, "Next Page"), currentPage, " / ", apiData.page_count)), src && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "openverse-image",
-    alt: `${selectedPic.title} by ${selectedPic.provider} - ${selectedPic.license}`,
-    src: selectedPic.url,
+    alt: alt,
+    src: src,
     width: "50%",
     height: "50%",
-    onClick: () => {
-      setSelectedPic(null);
+    onClick: e => {
+      searchPhotos(e, 1);
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, selectedPic.tags)));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, alt))));
 } //I am not familiar with the API so I am keeping this here for now.
 
 /**
@@ -261,8 +276,16 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function save() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('New Block – hello from the saved content!', 'ls-wp-ccsearch'));
+function save(props) {
+  const {
+    src,
+    alt,
+    caption
+  } = props.attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: src,
+    alt: alt
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, caption));
 }
 
 /***/ }),
