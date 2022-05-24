@@ -73,7 +73,7 @@ function Edit(props) {
   const [activeSource, setActiveSource] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [sources, setsources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [searchAllSources, setSearchAllSources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
-  const [showSearch, setshowSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true); // fetch the data from the API
+  const [showSearch, setshowSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(!src ? true : false); // fetch the data from the API
 
   const searchPhotos = async (e, page) => {
     e.preventDefault();
