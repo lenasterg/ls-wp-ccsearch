@@ -22,10 +22,12 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save(props) {
+	const { src, alt, caption } = props.attributes;
 	return (
-		<p {...useBlockProps.save()}>
-			{__('New Block – hello from the saved content!', 'ls-wp-ccsearch')}
-		</p>
+		<figure {...useBlockProps.save()}>
+			<img src={src} alt={alt} />
+			<figcaption>{caption}</figcaption>
+		</figure>
 	);
 }

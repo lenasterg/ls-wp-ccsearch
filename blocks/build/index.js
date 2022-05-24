@@ -16,9 +16,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 
 
 /**
@@ -26,6 +28,8 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
+
+
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -52,76 +56,107 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function Edit() {
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [query, setQuery] = React.useState("");
-  const [pics, setPics] = React.useState([]);
-  const [selectedPic, setSelectedPic] = React.useState(null);
+function Edit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    src,
+    alt,
+    prevSearchTerm
+  } = attributes;
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [apiData, setApiResultData] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [searchTerm, setSearchTerm] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [currentPage, setCurrentPage] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+  const [activeSource, setActiveSource] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [sources, setsources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [searchAllSources, setSearchAllSources] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [showSearch, setshowSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true); // fetch the data from the API
 
-  const searchPhotos = async e => {
+  const searchPhotos = async (e, page) => {
     e.preventDefault();
-    setIsLoading(true);
-    fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=" + ${query}&licence=BY-NC-SA`).then(response => response.json()).then(data => setPics(data.results)).then(() => setIsLoading(false));
+    setLoading(true);
+    fetch(`https://api.openverse.engineering/v1/images?format=json&shouldPersistImages=true&q=${searchTerm ? searchTerm : prevSearchTerm}&source=${activeSource ? activeSource : ""}&licence=BY-NC-SA&page_size=20&page=${page ? page : 1}`).then(response => response.json()).then(data => {
+      setApiResultData(data);
+    }).then(() => {
+      setLoading(false);
+      setshowSearch(true);
+    }).catch(error => {});
+  }; // get the image providers from the API
+
+
+  const getSources = async e => {
+    setLoading(true);
+    fetch(`https://api.openverse.engineering/v1/images/stats/?format=json`).then(response => response.json()).then(data => {
+      setsources(data);
+    }).then(() => setLoading(false)).catch(error => {});
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
-    className: "form",
-    onSubmit: searchPhotos
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    className: "label",
-    htmlFor: "query"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "text",
-    name: "query",
-    className: "input",
-    placeholder: `Try "dog" or "apple"`,
-    value: query,
-    onChange: e => setQuery(e.target.value)
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    type: "submit",
-    className: "button"
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), showSearch && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Placeholder, {
+    className: "bg-yellow",
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockIcon, {
+      icon: "format-image"
+    }),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("CC-licensed images", "ls-wp-ccsearch"),
+    instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Quickly add openverce images in your site.", "ls-wp-ccsearch")
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
+    label: "Get images from all available sources",
+    help: "Uncheck to select a provider from the list",
+    checked: searchAllSources,
+    onChange: e => {
+      setSearchAllSources(!searchAllSources);
+      searchAllSources ? getSources() : null;
+    }
+  }), sources && !searchAllSources && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    onChange: setActiveSource
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: ""
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Search all sources", "ls-wp-ccsearch")), sources.map(provider => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: provider.source_name,
+    selected: activeSource === provider.source_name ? true : false
+  }, provider.display_name, " (", provider.media_count, ")"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: "Keyword",
+    value: searchTerm,
+    onChange: value => setSearchTerm(value)
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    onClick: searchPhotos
   }, "Search")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "openverse-search-results"
-  }, isLoading ? "Loading..." : "", !selectedPic && !isLoading && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, pics.map(pic => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "card",
-    key: pic.id
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, loading ? "Loading..." : "", showSearch && apiData && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, apiData.results && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalGrid, null, apiData.results.map(image => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "openverse-image",
-    alt: `${pic.title} by ${pic.provider} - ${pic.license}`,
-    src: pic.thumbnail,
+    alt: `${image.title} by ${image.provider} - ${image.license}`,
+    src: image.thumbnail,
+    onClick: () => {
+      setAttributes({
+        src: image.url,
+        alt: `${image.title} by ${image.provider} - ${image.license}`,
+        prevSearchTerm: searchTerm
+      });
+      setshowSearch(false);
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, `${image.title} by ${image.provider} - ${image.license}`)))), currentPage > 1 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    onClick: e => {
+      setCurrentPage(currentPage > 0 ? currentPage - 1 : 1);
+      searchPhotos(e, currentPage > 0 ? currentPage - 1 : 1);
+    }
+  }, "Prev Page") : null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    onClick: e => {
+      setCurrentPage(currentPage + 1);
+      searchPhotos(e, currentPage + 1);
+    }
+  }, "Next Page"), currentPage, " / ", apiData.page_count)), !showSearch && src && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "openverse-image",
+    alt: alt,
+    src: src,
     width: "50%",
     height: "50%",
-    onClick: () => {
-      setSelectedPic(pic);
+    onClick: e => {
+      searchPhotos(e, 1);
     }
-  }))), " ")), selectedPic && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "openverse-image",
-    alt: `${selectedPic.title} by ${selectedPic.provider} - ${selectedPic.license}`,
-    src: selectedPic.url,
-    width: "50%",
-    height: "50%",
-    onClick: () => {
-      setSelectedPic(null);
-    }
-  }));
-} //I am not familiar with the API so I am keeping this here for now.
-
-/**
-category: null
-creator: "Unknown author"
-detail_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/?format=json"
-foreign_landing_url: "https://commons.wikimedia.org/w/index.php?curid=721264"
-id: "0aff3595-8168-440b-83ff-7a80b65dea42"
-license: "cc0"
-license_url: "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
-license_version: "1.0"
-provider: "wikimedia"
-related_url: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/related/?format=json"
-source: "wikimedia"
-thumbnail: "http://api.openverse.engineering/v1/images/0aff3595-8168-440b-83ff-7a80b65dea42/thumb/?format=json"
-title: "File:Open book 01.svg"
-url: "https://upload.wikimedia.org/wikipedia/co
- */
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, alt))));
+}
 
 /***/ }),
 
@@ -220,8 +255,16 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function save() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('New Block – hello from the saved content!', 'ls-wp-ccsearch'));
+function save(props) {
+  const {
+    src,
+    alt,
+    caption
+  } = props.attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: src,
+    alt: alt
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figcaption", null, caption));
 }
 
 /***/ }),
@@ -267,6 +310,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 
