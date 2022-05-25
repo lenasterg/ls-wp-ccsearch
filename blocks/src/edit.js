@@ -22,10 +22,7 @@ import { useState } from "@wordpress/element";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import {
-  useBlockProps,
-  BlockIcon,
-} from "@wordpress/block-editor";
+import { useBlockProps, BlockIcon } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -54,7 +51,7 @@ export default function Edit(props) {
   const [activeSource, setActiveSource] = useState([]);
   const [sources, setsources] = useState([]);
   const [searchAllSources, setSearchAllSources] = useState(true);
-  const [showSearch, setshowSearch] = useState(true);
+  const [showSearch, setshowSearch] = useState(!src ? true : false);
 
   // fetch the data from the API
   const searchPhotos = async (e, page) => {
@@ -71,7 +68,10 @@ export default function Edit(props) {
       .then((data) => {
         setApiResultData(data);
       })
-	   .then(() => { setLoading(false); setshowSearch(true); })
+      .then(() => {
+        setLoading(false);
+        setshowSearch(true);
+      })
       .catch((error) => {});
   };
 
