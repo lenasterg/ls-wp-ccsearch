@@ -100,8 +100,14 @@ export default function Edit(props) {
           )}
         >
           <CheckboxControl
-            label="Get images from all available sources"
-            help="Uncheck to select a provider from the list"
+            label={__(
+              "Get images from all available sources",
+              "ls-wp-ccsearch"
+            )}
+            help={__(
+              "Uncheck to select a provider from the list",
+              "ls-wp-ccsearch"
+            )}
             checked={searchAllSources}
             onChange={(e) => {
               setSearchAllSources(!searchAllSources);
@@ -134,7 +140,7 @@ export default function Edit(props) {
         </Placeholder>
       )}
       <div className="openverse-search-results">
-        {loading ? "Loading..." : ""}
+        {loading ? `${__("Loading...", "ls-wp-ccsearch")}` : ""}
         {showSearch && apiData && (
           <>
             {apiData.results && (

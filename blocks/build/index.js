@@ -102,8 +102,8 @@ function Edit(props) {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("CC-licensed images", "ls-wp-ccsearch"),
     instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Quickly add openverce images in your site.", "ls-wp-ccsearch")
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
-    label: "Get images from all available sources",
-    help: "Uncheck to select a provider from the list",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get images from all available sources", "ls-wp-ccsearch"),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Uncheck to select a provider from the list", "ls-wp-ccsearch"),
     checked: searchAllSources,
     onChange: e => {
       setSearchAllSources(!searchAllSources);
@@ -124,7 +124,7 @@ function Edit(props) {
     onClick: searchPhotos
   }, "Search")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "openverse-search-results"
-  }, loading ? "Loading..." : "", showSearch && apiData && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, apiData.results && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalGrid, null, apiData.results.map(image => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, loading ? `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Loading...", "ls-wp-ccsearch")}` : "", showSearch && apiData && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, apiData.results && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalGrid, null, apiData.results.map(image => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "openverse-image",
     alt: `${image.title} by ${image.provider} - ${image.license}`,
     src: image.thumbnail,
