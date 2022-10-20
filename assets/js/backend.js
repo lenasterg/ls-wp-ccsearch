@@ -6,11 +6,25 @@ var lswpcc_width_small = '630px';
 var lswpcc_width_big = '930px';
 var lswpcc_height = '700px';
 
+var activeLanguage = "en"
+
 jQuery(document).ready(function ($) {
+    function sortdata(selector) {
+        var $dropdown = $(selector);
+        
+        $dropdown.find('option').sort(function (a, b) {
+            var upA = $(a).text().toUpperCase();
+            var upB = $(b).text().toUpperCase();
+            return (upA < upB) ? -1 : (upA > upB) ? 1 : 0;
+        }).appendTo(selector);
+        selector.prepend('<option value="">' + lswpcc_vars.lswpcc_allproviders + '</option>');
+    selector.prop('selectedIndex', 0);
+    };
+
+    
     let dropdown = $('#lswpcc_provider');
     dropdown.empty();
-    dropdown.append('<option value="">' + lswpcc_vars.lswpcc_allproviders + '</option>');
-    dropdown.prop('selectedIndex', 0);
+    
 
     const url = 'https://api.openverse.engineering/v1/images/stats/?format=json';
     //Populate dropdown with list of providers, since v1.0
@@ -22,6 +36,7 @@ jQuery(document).ready(function ($) {
         $.each(data, function (key, entry) {
             dropdown.append($('<option></option>').attr('value', entry.source_name).text(entry.display_name));
         })
+        sortdata(dropdown);
     });
 
 
@@ -130,6 +145,11 @@ jQuery(document).ready(function ($) {
 
     $('body').on('click touch', '#lswpcc_featured', function () {
         var url = $('#lswpcc_url').val();
+        $('.lswpcc_featured_url').val(url);
+        $('#postimagediv div.inside img').remove();
+
+        $('#postimagediv div.inside').prepend('<img src="' + url + '" width="270"/>');
+        
         if ($('#lswpcc_use').val() == 'thumbnail') {
             url = $('#lswpcc_urlthumb').val();
         }
@@ -137,13 +157,10 @@ jQuery(document).ready(function ($) {
         var title = $('#lswpcc_title').val();
         var caption = $('#lswpcc_caption').val();
 
-        $('.lswpcc_featured_url').val(url);
+        
         $('.lswpcc_featured_title').val(title);
         $('.lswpcc_featured_caption').val(caption);
-        $('#postimagediv div.inside img').remove();
-
-        $('#postimagediv div.inside').prepend('<img src="' + url + '" width="270"/>');
-
+        
         $.colorbox.close();
     });
 
@@ -298,7 +315,6 @@ function lswpcc_show_images(data, page) {
         jQuery('#lswpcc_page').html(pages);
     }
 }
-
 
 /** 
  * 
