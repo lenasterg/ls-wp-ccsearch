@@ -3,8 +3,8 @@ Contributors: lenasterg, nts on cti.gr, sch.gr
 Donate link: 
 Tags: cc, creative commons, media library, free image, free photo, multisite
 Requires at least: 4.6
-Tested up to: 5.9
-Stable tag: trunk
+Tested up to: 6.1
+Stable tag: 3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,8 +12,8 @@ Easy search and use CC-licensed images for WP helps you search millions of CC-li
 
 == Description ==
 
-Easy search and use CC-licensed images for WP helps you search millions of free photos using the [Openverse API](https://api.openverse.engineering/v1/) then insert the original image into content or set as featured image very quickly.
-It allows the user to filter the provider source.
+Easy search and use CC-licensed images for WP helps you search millions of free photos using the [Openverse API](https://api.openverse.engineering/v1/) and insert the original image into your content or set as featured image very quickly. 
+It allows the user to filter the provider source.											 
 The plugin is inspired and based on the [CCSearch] (https://ccsearch.creativecommons.org/) and it wouldnt't be possible without the  [Openverse API](https://api.openverse.engineering/v1/)  and until version 2.0 the  [Creative Commons Catalog API](https://api.creativecommons.engineering). 
 
 After the plugin's activation, you can see the "Image with CC License"  button above the editor and as option into the "Add Media" pop-up window. 
@@ -33,7 +33,7 @@ By pressing it  you can search using Latin characters for an image, browse the r
 - WPML compatible
 - Multisite compatible
 - Translation ready (it’s already translated in Greek)
-- Tested up to WordPress 5.2.2 with Classic Editor plugin
+- Tested up to WordPress 5.9 with Classic Editor plugin
 
 You can find a blog post in [opensource.creativecommons.org](https://opensource.creativecommons.org/blog/entries/2019-07-24-cc-search-wp-plugin/) about the inspiration and how it works.
 
@@ -76,6 +76,14 @@ NOTE 2: Currently, the plugin needs [Classic Editor](https://wordpress.org/plugi
 6. The published post with the image.
 
 == Changelog ==
+
+= 3.2 =
+* Fix bug when image was set as post thumbnail. Props to @gnr5 for spotting the bug
+* Display images sources sorted by name
+* WordPress 6.1 compatibility
+
+= 3.1 =
+* Minor changes
 
 = 3.0 =
 * Changes to use openverse API urls
