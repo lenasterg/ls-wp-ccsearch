@@ -2,8 +2,8 @@
 /*
   Plugin Name: Easy search and use CC-licensed images for WP
   Plugin URI: https://github.com/lenasterg/ls-wp-ccsearch
-  Description: Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the Openverse API and insert the original image into content or set as featured image very quickly.
-  Version: 3.1
+  Description: Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the Openverse API and insert the original image into your post content or set it as featured image very quickly.
+  Version: 3.2
   Author: lenasterg, nts on cti.gr, sch.gr
   Author URI:
   Text Domain: ls-wp-ccsearch
