@@ -34,7 +34,7 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 - WPML compatible
 - Multisite compatible
 - Translation ready (it’s already translated in Greek)
-- Tested up to WordPress 5.2.2 with Classic Editor plugin
+- Tested up to WordPress 6.1 with Classic Editor plugin
 
 
 ## Installation
@@ -55,9 +55,13 @@ Currently, the plugin needs Classic Editor (https://wordpress.org/plugins/classi
 
 
 ## Changelog
+### 3.2 
+* Fix bug when image was set as post thumbnail. Props to @gnr5 for spotting the bug
+* Display images sources sorted by name
+* WordPress 6.1 compatibility
+
 ### 3.1 
 * Remove attributes images 
-
 ### 3.0 
 * Changes to use openverse API urls
 
