@@ -8,6 +8,7 @@ var lswpcc_height = '700px';
 
 var activeLanguage = "en"
 
+
 jQuery(document).ready(function ($) {
     function sortdata(selector) {
         var $dropdown = $(selector);
@@ -24,9 +25,8 @@ jQuery(document).ready(function ($) {
     
     let dropdown = $('#lswpcc_provider');
     dropdown.empty();
-    
-
-    const url = 'https://api.openverse.engineering/v1/images/stats/?format=json';
+    //@since version 4.0
+	const url = lswpcc_vars.lswpcc_openverse;								  
     //Populate dropdown with list of providers, since v1.0
     $.ajax({
         url: url,
@@ -38,6 +38,8 @@ jQuery(document).ready(function ($) {
         })
         sortdata(dropdown);
     });
+
+
 
 
     $('.lswpcc_loading_text').hide();

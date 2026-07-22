@@ -1,14 +1,16 @@
 <?php
-/*
-  Plugin Name: Easy search and use CC-licensed images for WP
-  Plugin URI: https://github.com/lenasterg/ls-wp-ccsearch
-  Description: Easy search and use CC-licensed images for WP helps you search millions of CC-licensed images using the Openverse API and insert the original image into your post content or set it as featured image very quickly.
-  Version: 3.2
-  Author: lenasterg, nts on cti.gr, sch.gr
-  Author URI:
-  Text Domain: ls-wp-ccsearch
-  Domain Path: /languages/
- */
+/**
+* Plugin Name: Easy search and use CC-licensed images
+* Plugin URI: https://github.com/lenasterg/ls-wp-ccsearch
+* Description: Easy search and use CC-licensed images helps you search millions of CC-licensed images using the Openverse API and insert the original image into your post content or set it as featured image very quickly.
+* Version: 5.0
+* Author: lenasterg
+* Author URI: https://lenasterg.wordpress.com
+* License: GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Text Domain: ls-wp-ccsearch
+* Domain Path: /languages/
+*/
 
 defined( 'ABSPATH' ) || exit;
 
@@ -84,9 +86,7 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 				<h1 class="lswpccsearch_settings_page_title"><?php echo esc_html__( 'Easy search and use CC-licensed images for WP', 'ls-wp-ccsearch' ) . ' ' . LS_WPCC_VERSION; ?></h1>
 				<div class="lswpccsearch_settings_page_desc about-text">
 					<p>
-																																																																																																																								 
-		   
-						<a href="<?php echo esc_url( LS_WPCC_REVIEWS ); ?>"
+					 <a href="<?php echo esc_url( LS_WPCC_REVIEWS ); ?>"
 						   target="_blank"><?php esc_html_e( 'Reviews', 'ls-wp-ccsearch' ); ?></a> | <a
 						   href="<?php echo esc_url( LS_WPCC_CHANGELOGS ); ?>"
 						   target="_blank"><?php esc_html_e( 'Changelogs', 'ls-wp-ccsearch' ); ?></a>
@@ -118,25 +118,41 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 			<?php
 		}
 
-		/** 	
-		 * @version 2.0
-		 * @author lenasterg
+		/**
+		 * Enqueues and localizes administrative scripts and styles.
+		 *
+		 * Localizes specific variables and translations required by the backend JS.
+		 *
+		 * @since 1.0.0
+		 * @since 4.0.0 Added 'lswpcc_openverse' parameter to the localized script array.
+		 * @since 5.0.0 Added conditional check to restrict execution only to post editing and creation screens.
+		 *
+		 * @param string $hook The current admin page hook.
+		 * @return void
 		 */
-		function lswpcc_load_scripts() {
+		function lswpcc_load_scripts( $hook) {
+			// Only load on edit, new post/page and add media modal screens.
+			if ( 'post.php' !== $hook && 'post-new.php' !== $hook && 'media-upload-popup' !== $hook ) {
+				return;
+			}
+			wp_enqueue_media();
 			wp_enqueue_script( 'colorbox', LS_WPCC_URI . 'assets/js/jquery.colorbox.js', array( 'jquery' ), LS_WPCC_VERSION );
 			wp_enqueue_style( 'colorbox', LS_WPCC_URI . 'assets/css/colorbox.css' );
 			wp_enqueue_style( 'wpcc', LS_WPCC_URI . 'assets/css/backend.css' );
 			wp_enqueue_script( 'wpcc', LS_WPCC_URI . 'assets/js/backend.js', array( 'jquery' ), LS_WPCC_VERSION, true );
 			wp_localize_script( 'wpcc', 'lswpcc_vars', array(
-				'lswpcc_ajax_url' => admin_url( 'admin-ajax.php' ),
-				'lswpcc_media_url' => admin_url( 'upload.php' ),
+				'lswpcc_ajax_url' => esc_url(admin_url( 'admin-ajax.php' ) ),
+				'lswpcc_media_url' => esc_url(admin_url( 'upload.php' ) ),
 				'lswpcc_nonce' => wp_create_nonce( 'lswpcc_nonce' ),
-				'lswpcc_by_author' => __( 'by', 'ls-wp-ccsearch' ),
-				'lswpcc_licensed_under' => __( 'is licensed under', 'ls-wp-ccsearch' ),
-				'lswpcc_res_about' => __( 'About', 'ls-wp-ccsearch' ),
-				'lswpcc_res_pages' => __( 'results / Pages', 'ls-wp-ccsearch' ),
-				'lswpcc_allproviders' => __( 'All providers', 'ls-wp-ccsearch' ),
-			) );
+				'lswpcc_by_author' => esc_html__( 'by', 'ls-wp-ccsearch' ),
+				'lswpcc_licensed_under' => esc_html__( 'is licensed under', 'ls-wp-ccsearch' ),
+				'lswpcc_res_about' => esc_html__( 'About', 'ls-wp-ccsearch' ),
+				'lswpcc_res_pages' => esc_html__( 'results / Pages', 'ls-wp-ccsearch' ),
+				'lswpcc_allproviders' => esc_html__( 'All providers', 'ls-wp-ccsearch' ),
+				/*@since version 4.0
+				*/
+				'lswpcc_openverse' => esc_url(plugin_dir_url(__FILE__).'get_ov_stats_nobearer.php')
+				));
 		}
 
 		/**
@@ -297,8 +313,8 @@ if ( !class_exists( 'LS_WPCCsearch' ) ) {
 									<label for="lswpcc_caption"><?php esc_html_e( 'CC license', 'ls-wp-ccsearch' ); ?>:</label><br/>
 									<input type="hidden" id="lswpcc_caption" name="lswpcc_caption">
 									<div id="lswpcc_caption_display"></div>
-									<div class="lswpcc_cc_verify"><?php _e( 'NOTE: Please verify the license at the source', 'ls-wp-ccsearch' ); ?>:<span id="lswpcc_sourcelink"></span>  <?php _e( 'before reuse' ); ?>.
-										<br/><?php _e( 'The images are aggregated from publicly available repositories of open content and we can not verify that are properly CC-licensed or that the attribution information is accurate or complete.', 'ls-wp-ccsearch' ); ?></div>
+									<div class="lswpcc_cc_verify"><?php esc_html_e( 'NOTE: Please verify the license at the source', 'ls-wp-ccsearch' ); ?>:<span id="lswpcc_sourcelink"></span>  <?php esc_html_e( 'before reuse', 'ls-wp-ccsearch' );; ?>.
+										<br/><?php esc_html_e( 'The images are aggregated from publicly available repositories of open content and we can not verify that are properly CC-licensed or that the attribution information is accurate or complete.', 'ls-wp-ccsearch' ); ?></div>
 								</div>
 
 								<div class="lswpcc_item_info">

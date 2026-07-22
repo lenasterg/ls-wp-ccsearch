@@ -5,6 +5,8 @@
 
 //Code from on https://code.tutsplus.com/articles/integrating-with-wordpress-ui-admin-pointers--wp-26853
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 add_action( 'admin_enqueue_scripts', 'wp_ccsearch_pointer_load', 1000 );
 	
  
@@ -81,15 +83,3 @@ function wp_ccsearch_register_pointer( $p ) {
     );
     return $p;
 }
-
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-function wp_ccsearch_block_init() {
-	register_block_type(__DIR__ . '/blocks/build');
-}
-add_action('init', 'wp_ccsearch_block_init');
